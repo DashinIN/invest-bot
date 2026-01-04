@@ -18,15 +18,15 @@ export function initAssetAction(sequelize: Sequelize) {
         primaryKey: true,
         autoIncrement: true
       },
-      user_id: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      asset_id: {
+      assetId: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      action_id: {
+      actionId: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -43,8 +43,8 @@ export function initAssetAction(sequelize: Sequelize) {
       sequelize,
       tableName: 'asset_actions',
       timestamps: false,
-      underscored: true,
-      createdAt: 'created_at',
+      underscored: false,
+      createdAt: false,
       updatedAt: false
     }
   );

@@ -25,18 +25,18 @@ export class Database {
     initTransaction(this.sequelize);
 
     // Set up associations
-    User.hasMany(UserAsset, { foreignKey: 'user_id', as: 'assets' });
-    UserAsset.belongsTo(User, { foreignKey: 'user_id' });
+    User.hasMany(UserAsset, { foreignKey: 'userId', as: 'assets' });
+    UserAsset.belongsTo(User, { foreignKey: 'userId' });
 
-    User.hasMany(AssetAction, { foreignKey: 'user_id' });
-    AssetAction.belongsTo(User, { foreignKey: 'user_id' });
-    AssetAction.belongsTo(UserAsset, { foreignKey: 'asset_id' });
+    User.hasMany(AssetAction, { foreignKey: 'userId' });
+    AssetAction.belongsTo(User, { foreignKey: 'userId' });
+    AssetAction.belongsTo(UserAsset, { foreignKey: 'assetId' });
 
-    User.hasMany(Achievement, { foreignKey: 'user_id', as: 'achievements' });
-    Achievement.belongsTo(User, { foreignKey: 'user_id' });
+    User.hasMany(Achievement, { foreignKey: 'userId', as: 'achievements' });
+    Achievement.belongsTo(User, { foreignKey: 'userId' });
 
-    User.hasMany(Transaction, { foreignKey: 'user_id', as: 'transactions' });
-    Transaction.belongsTo(User, { foreignKey: 'user_id' });
+    User.hasMany(Transaction, { foreignKey: 'userId', as: 'transactions' });
+    Transaction.belongsTo(User, { foreignKey: 'userId' });
 
     await this.sequelize.authenticate();
     console.log('✅ Database connected successfully');

@@ -43,9 +43,9 @@ export function calculateNewActionLevel(
     return { newLevel: currentLevel, newCost: 0, canExecute: false };
   }
 
-  const canExecute = currentLevel < action.max_level;
+  const canExecute = currentLevel < action.maxLevel;
   const newLevel = canExecute ? currentLevel + 1 : currentLevel;
-  const newCost = calculateActionCost(action.base_cost, newLevel);
+  const newCost = calculateActionCost(action.baseCost, newLevel);
 
   return { newLevel, newCost, canExecute };
 }

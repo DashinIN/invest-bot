@@ -6,86 +6,441 @@
       {
         "id": "residential_complex",
         "name": "Жилой комплекс",
-        "base_income": 14,
+        "baseIncome": 14,
+        "baseCost": 1200,
         "actions": [
-          { "id": "land_purchase", "name": "Покупка земли", "base_cost": 12, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "foundation_work", "name": "Фундамент", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "apartment_units", "name": "Жилые квартиры", "base_cost": 45, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "amenities", "name": "Парковка и удобства", "base_cost": 85, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "green_spaces", "name": "Озеленение", "base_cost": 130, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "smart_building", "name": "Умный дом", "base_cost": 210, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "luxury_finishing", "name": "Люкс отделка", "base_cost": 340, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "prime_location", "name": "Премиум локация", "base_cost": 530, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "mega_complex", "name": "Мега комплекс", "base_cost": 820, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "real_estate_empire", "name": "Империя недвижимости", "base_cost": 1280, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "land_purchase",
+            "name": "Покупка земли",
+            "baseCost": 12,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "foundation_work",
+            "name": "Фундамент",
+            "baseCost": 25,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "apartment_units",
+            "name": "Жилые квартиры",
+            "baseCost": 45,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "amenities",
+            "name": "Парковка и удобства",
+            "baseCost": 85,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "green_spaces",
+            "name": "Озеленение",
+            "baseCost": 130,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "smart_building",
+            "name": "Умный дом",
+            "baseCost": 210,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "luxury_finishing",
+            "name": "Люкс отделка",
+            "baseCost": 340,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "prime_location",
+            "name": "Премиум локация",
+            "baseCost": 530,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "mega_complex",
+            "name": "Мега комплекс",
+            "baseCost": 820,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "real_estate_empire",
+            "name": "Империя недвижимости",
+            "baseCost": 1280,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       },
       {
         "id": "commercial_center",
         "name": "Торговый центр",
-        "base_income": 16,
+        "baseIncome": 16,
+        "baseCost": 1500,
         "actions": [
-          { "id": "retail_units", "name": "Розничные магазины", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "anchor_tenant", "name": "Якорный арендатор", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "food_court", "name": "Пищевой двор", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "entertainment_zone", "name": "Развлекательная зона", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "cinema_complex", "name": "Кинотеатр", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "parking_structure", "name": "Многоуровневая парковка", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "vip_zones", "name": "VIP зоны", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "events_hall", "name": "Конгресс-центр", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "megamall", "name": "Мегамолл", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "retail_empire", "name": "Империя торговли", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "retail_units",
+            "name": "Розничные магазины",
+            "baseCost": 15,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "anchor_tenant",
+            "name": "Якорный арендатор",
+            "baseCost": 30,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "food_court",
+            "name": "Пищевой двор",
+            "baseCost": 50,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "entertainment_zone",
+            "name": "Развлекательная зона",
+            "baseCost": 90,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "cinema_complex",
+            "name": "Кинотеатр",
+            "baseCost": 140,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "parking_structure",
+            "name": "Многоуровневая парковка",
+            "baseCost": 220,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "vip_zones",
+            "name": "VIP зоны",
+            "baseCost": 360,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "events_hall",
+            "name": "Конгресс-центр",
+            "baseCost": 550,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "megamall",
+            "name": "Мегамолл",
+            "baseCost": 850,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "retail_empire",
+            "name": "Империя торговли",
+            "baseCost": 1300,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       },
       {
         "id": "office_building",
         "name": "Офисное здание",
-        "base_income": 15,
+        "baseIncome": 15,
+        "baseCost": 1500,
         "actions": [
-          { "id": "floor_space", "name": "Офисные помещения", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "meeting_rooms", "name": "Переговорные комнаты", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "tech_infrastructure", "name": "IT инфраструктура", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "coworking_space", "name": "Coworking пространство", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "corporate_cafeteria", "name": "Корпоративная столовая", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "fitness_center", "name": "Фитнес центр", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "premium_tenants", "name": "Премиум арендаторы", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "sky_lounge", "name": "Sky Lounge", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "landmark_building", "name": "Достопримечательность", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "office_empire", "name": "Офисная империя", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "floor_space",
+            "name": "Офисные помещения",
+            "baseCost": 15,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "meeting_rooms",
+            "name": "Переговорные комнаты",
+            "baseCost": 30,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "tech_infrastructure",
+            "name": "IT инфраструктура",
+            "baseCost": 50,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "coworking_space",
+            "name": "Coworking пространство",
+            "baseCost": 90,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "corporate_cafeteria",
+            "name": "Корпоративная столовая",
+            "baseCost": 140,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "fitness_center",
+            "name": "Фитнес центр",
+            "baseCost": 220,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "premium_tenants",
+            "name": "Премиум арендаторы",
+            "baseCost": 360,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "sky_lounge",
+            "name": "Sky Lounge",
+            "baseCost": 550,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "landmark_building",
+            "name": "Достопримечательность",
+            "baseCost": 850,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "office_empire",
+            "name": "Офисная империя",
+            "baseCost": 1300,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       },
       {
         "id": "hotel_resort",
         "name": "Отель-курорт",
-        "base_income": 17,
+        "baseCost": 1700,
+        "baseIncome": 17,
         "actions": [
-          { "id": "standard_rooms", "name": "Стандартные номера", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "restaurant", "name": "Ресторан", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "spa_center", "name": "Спа-центр", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "pool_complex", "name": "Аквапарк", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "conference_rooms", "name": "Конференц-залы", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "suites", "name": "Люкс номера", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "marina", "name": "Марина", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "golf_course", "name": "Поле для гольфа", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "five_star_resort", "name": "5-звездочный курорт", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "luxury_chain", "name": "Люкс сеть отелей", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "standard_rooms",
+            "name": "Стандартные номера",
+            "baseCost": 15,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "restaurant",
+            "name": "Ресторан",
+            "baseCost": 30,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "spa_center",
+            "name": "Спа-центр",
+            "baseCost": 50,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "pool_complex",
+            "name": "Аквапарк",
+            "baseCost": 90,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "conference_rooms",
+            "name": "Конференц-залы",
+            "baseCost": 140,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "suites",
+            "name": "Люкс номера",
+            "baseCost": 220,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "marina",
+            "name": "Марина",
+            "baseCost": 360,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "golf_course",
+            "name": "Поле для гольфа",
+            "baseCost": 550,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "five_star_resort",
+            "name": "5-звездочный курорт",
+            "baseCost": 850,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "luxury_chain",
+            "name": "Люкс сеть отелей",
+            "baseCost": 1300,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       },
       {
         "id": "industrial_park",
         "name": "Индустриальный парк",
-        "base_income": 13,
+        "baseCost": 1000,
+        "baseIncome": 13,
         "actions": [
-          { "id": "warehouse_units", "name": "Складские помещения", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "production_facilities", "name": "Производственные помещения", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "logistics_hub", "name": "Логистический хаб", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "rail_access", "name": "Железнодорожный доступ", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "port_facilities", "name": "Портовые сооружения", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "customs_zone", "name": "Таможенная зона", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "manufacturing_cluster", "name": "Кластер производства", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "tech_manufacturing", "name": "Высокотехнологичное производство", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "megaport", "name": "Мегапорт", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "industrial_empire", "name": "Индустриальная империя", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "warehouse_units",
+            "name": "Складские помещения",
+            "baseCost": 10,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "production_facilities",
+            "name": "Производственные помещения",
+            "baseCost": 25,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "logistics_hub",
+            "name": "Логистический хаб",
+            "baseCost": 40,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "rail_access",
+            "name": "Железнодорожный доступ",
+            "baseCost": 80,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "port_facilities",
+            "name": "Портовые сооружения",
+            "baseCost": 120,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "customs_zone",
+            "name": "Таможенная зона",
+            "baseCost": 200,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "manufacturing_cluster",
+            "name": "Кластер производства",
+            "baseCost": 350,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "tech_manufacturing",
+            "name": "Высокотехнологичное производство",
+            "baseCost": 500,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "megaport",
+            "name": "Мегапорт",
+            "baseCost": 800,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "industrial_empire",
+            "name": "Индустриальная империя",
+            "baseCost": 1200,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       }
     ]

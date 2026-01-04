@@ -48,7 +48,7 @@ export function registerStatsHandlers(bot: Telegraf) {
     try {
       const topPlayers = await User.findAll({
         limit: 10,
-        order: [['total_income', 'DESC']]
+        order: [['totalIncome', 'DESC']]
       });
 
       let message = '🏆 **Топ-10 игроков**\n\n';

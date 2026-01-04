@@ -41,7 +41,7 @@ export function schedulePassiveIncome() {
 
       for (const user of users) {
         const assets = await UserAsset.findAll({
-          where: { user_id: user.id }
+          where: { userId: user.id }
         });
 
         let totalIncome = 0;
@@ -55,7 +55,7 @@ export function schedulePassiveIncome() {
           await user.save();
 
           await Transaction.create({
-            user_id: user.id,
+            userId: user.id,
             type: 'passive_income',
             amount: totalIncome,
             description: `Daily passive income: ${totalIncome}`
@@ -86,7 +86,7 @@ export function scheduleWeeklyStats() {
 
       const topPlayers = await User.findAll({
         limit: 10,
-        order: [['total_income', 'DESC']]
+        order: [['totalIncome', 'DESC']]
       });
 
       // TODO: Send message to channel with leaderboard

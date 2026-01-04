@@ -21,15 +21,15 @@ export function initUserAsset(sequelize: Sequelize) {
         primaryKey: true,
         autoIncrement: true
       },
-      user_id: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      industry_id: {
+      industryId: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      asset_id: {
+      assetId: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -37,11 +37,11 @@ export function initUserAsset(sequelize: Sequelize) {
         type: DataTypes.INTEGER,
         defaultValue: 1
       },
-      current_cost: {
+      currentCost: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      current_income: {
+      currentIncome: {
         type: DataTypes.INTEGER,
         defaultValue: 0
       }
@@ -50,7 +50,7 @@ export function initUserAsset(sequelize: Sequelize) {
       sequelize,
       tableName: 'user_assets',
       timestamps: true,
-      underscored: true
+      underscored: false
     }
   );
 

@@ -16,11 +16,11 @@ export function initAchievement(sequelize: Sequelize) {
         primaryKey: true,
         autoIncrement: true
       },
-      user_id: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
-      achievement_id: {
+      achievementId: {
         type: DataTypes.STRING,
         allowNull: false
       },
@@ -28,7 +28,7 @@ export function initAchievement(sequelize: Sequelize) {
         type: DataTypes.BOOLEAN,
         defaultValue: false
       },
-      unlocked_at: {
+      unlockedAt: {
         type: DataTypes.DATE,
         allowNull: true
       }
@@ -37,7 +37,7 @@ export function initAchievement(sequelize: Sequelize) {
       sequelize,
       tableName: 'achievements',
       timestamps: false,
-      underscored: true
+      underscored: false
     }
   );
 

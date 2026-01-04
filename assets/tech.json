@@ -6,86 +6,441 @@
       {
         "id": "startup",
         "name": "Технологический стартап",
-        "base_income": 15,
+        "baseIncome": 15,
+        "baseCost": 1500,
         "actions": [
-          { "id": "mvp_launch", "name": "Запуск MVP", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "seed_funding", "name": "Seed раунд финансирования", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "beta_testers", "name": "Бета-тестеры", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "series_a", "name": "Series A раунд", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "market_expansion", "name": "Расширение рынка", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "series_b", "name": "Series B раунд", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "ipo_preparation", "name": "Подготовка к IPO", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "global_expansion", "name": "Глобальное расширение", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "unicorn_status", "name": "Статус Unicorn", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "tech_titan", "name": "Технологический титан", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "mvp_launch",
+            "name": "Запуск MVP",
+            "baseCost": 15,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "seed_funding",
+            "name": "Seed раунд финансирования",
+            "baseCost": 30,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "beta_testers",
+            "name": "Бета-тестеры",
+            "baseCost": 50,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "series_a",
+            "name": "Series A раунд",
+            "baseCost": 90,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "market_expansion",
+            "name": "Расширение рынка",
+            "baseCost": 140,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "series_b",
+            "name": "Series B раунд",
+            "baseCost": 220,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "ipo_preparation",
+            "name": "Подготовка к IPO",
+            "baseCost": 360,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "global_expansion",
+            "name": "Глобальное расширение",
+            "baseCost": 550,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "unicorn_status",
+            "name": "Статус Unicorn",
+            "baseCost": 850,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "tech_titan",
+            "name": "Технологический титан",
+            "baseCost": 1300,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       },
       {
         "id": "saas_company",
         "name": "SaaS сервис",
-        "base_income": 17,
+        "baseIncome": 17,
+        "baseCost": 1700,
         "actions": [
-          { "id": "product_launch", "name": "Запуск продукта", "base_cost": 20, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "free_tier", "name": "Бесплатный уровень", "base_cost": 40, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "enterprise_plans", "name": "Корпоративные тарифы", "base_cost": 70, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "api_integration", "name": "API интеграции", "base_cost": 120, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "partner_network", "name": "Сеть партнеров", "base_cost": 180, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "marketplace", "name": "Маркетплейс расширений", "base_cost": 260, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "analytics_platform", "name": "Аналитическая платформа", "base_cost": 420, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "ai_features", "name": "AI функции", "base_cost": 650, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "industry_standard", "name": "Индустриальный стандарт", "base_cost": 1000, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "saas_leader", "name": "Лидер SaaS рынка", "base_cost": 1600, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "product_launch",
+            "name": "Запуск продукта",
+            "baseCost": 20,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "free_tier",
+            "name": "Бесплатный уровень",
+            "baseCost": 40,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "enterprise_plans",
+            "name": "Корпоративные тарифы",
+            "baseCost": 70,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "api_integration",
+            "name": "API интеграции",
+            "baseCost": 120,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "partner_network",
+            "name": "Сеть партнеров",
+            "baseCost": 180,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "marketplace",
+            "name": "Маркетплейс расширений",
+            "baseCost": 260,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "analytics_platform",
+            "name": "Аналитическая платформа",
+            "baseCost": 420,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "ai_features",
+            "name": "AI функции",
+            "baseCost": 650,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "industry_standard",
+            "name": "Индустриальный стандарт",
+            "baseCost": 1000,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "saas_leader",
+            "name": "Лидер SaaS рынка",
+            "baseCost": 1600,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       },
       {
         "id": "ai_company",
         "name": "AI компания",
-        "base_income": 19,
+        "baseIncome": 19,
+        "baseCost": 1900,
         "actions": [
-          { "id": "model_training", "name": "Обучение модели", "base_cost": 25, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "dataset_collection", "name": "Сбор датасетов", "base_cost": 50, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "inference_optimization", "name": "Оптимизация инференса", "base_cost": 80, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "fine_tuning_service", "name": "Сервис Fine-tuning", "base_cost": 140, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "research_papers", "name": "Исследовательские работы", "base_cost": 200, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "enterprise_solutions", "name": "Корпоративные решения", "base_cost": 300, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "gpu_infrastructure", "name": "GPU инфраструктура", "base_cost": 480, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "llm_development", "name": "Разработка LLM", "base_cost": 750, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "ai_monopoly", "name": "AI монополия", "base_cost": 1150, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "ai_leader", "name": "Лидер AI индустрии", "base_cost": 1800, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "model_training",
+            "name": "Обучение модели",
+            "baseCost": 25,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "dataset_collection",
+            "name": "Сбор датасетов",
+            "baseCost": 50,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "inference_optimization",
+            "name": "Оптимизация инференса",
+            "baseCost": 80,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "fine_tuning_service",
+            "name": "Сервис Fine-tuning",
+            "baseCost": 140,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "research_papers",
+            "name": "Исследовательские работы",
+            "baseCost": 200,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "enterprise_solutions",
+            "name": "Корпоративные решения",
+            "baseCost": 300,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "gpu_infrastructure",
+            "name": "GPU инфраструктура",
+            "baseCost": 480,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "llm_development",
+            "name": "Разработка LLM",
+            "baseCost": 750,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "ai_monopoly",
+            "name": "AI монополия",
+            "baseCost": 1150,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "ai_leader",
+            "name": "Лидер AI индустрии",
+            "baseCost": 1800,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       },
       {
         "id": "cloud_services",
         "name": "Облачные сервисы",
-        "base_income": 18,
+        "baseCost": 1800,
+        "baseIncome": 18,
         "actions": [
-          { "id": "storage_service", "name": "Облачное хранилище", "base_cost": 20, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "compute_instances", "name": "Виртуальные машины", "base_cost": 40, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "database_service", "name": "Управляемые БД", "base_cost": 70, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "cdn_network", "name": "CDN сеть", "base_cost": 120, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "load_balancing", "name": "Балансировка нагрузки", "base_cost": 180, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "kubernetes_hosting", "name": "Kubernetes хостинг", "base_cost": 260, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "serverless_platform", "name": "Serverless платформа", "base_cost": 420, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "edge_computing", "name": "Edge Computing", "base_cost": 650, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "quantum_computing", "name": "Квантовые вычисления", "base_cost": 1000, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "cloud_empire", "name": "Облачная империя", "base_cost": 1600, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "storage_service",
+            "name": "Облачное хранилище",
+            "baseCost": 20,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "compute_instances",
+            "name": "Виртуальные машины",
+            "baseCost": 40,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "database_service",
+            "name": "Управляемые БД",
+            "baseCost": 70,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "cdn_network",
+            "name": "CDN сеть",
+            "baseCost": 120,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "load_balancing",
+            "name": "Балансировка нагрузки",
+            "baseCost": 180,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "kubernetes_hosting",
+            "name": "Kubernetes хостинг",
+            "baseCost": 260,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "serverless_platform",
+            "name": "Serverless платформа",
+            "baseCost": 420,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "edge_computing",
+            "name": "Edge Computing",
+            "baseCost": 650,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "quantum_computing",
+            "name": "Квантовые вычисления",
+            "baseCost": 1000,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "cloud_empire",
+            "name": "Облачная империя",
+            "baseCost": 1600,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       },
       {
         "id": "cybersecurity",
         "name": "Кибербезопасность",
-        "base_income": 16,
+        "baseCost": 1600,
+        "baseIncome": 16,
         "actions": [
-          { "id": "antivirus_software", "name": "Антивирусное ПО", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
-          { "id": "penetration_testing", "name": "Тестирование на уязвимости", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
-          { "id": "firewall_solutions", "name": "Решения для файервола", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
-          { "id": "encryption_tools", "name": "Инструменты шифрования", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
-          { "id": "threat_detection", "name": "Обнаружение угроз", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
-          { "id": "soc_services", "name": "SOC услуги", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
-          { "id": "incident_response", "name": "Реагирование на инциденты", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
-          { "id": "compliance_solutions", "name": "Решения для соответствия", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
-          { "id": "zero_trust_platform", "name": "Zero Trust платформа", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
-          { "id": "security_leader", "name": "Лидер кибербезопасности", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+          {
+            "id": "antivirus_software",
+            "name": "Антивирусное ПО",
+            "baseCost": 15,
+            "successChance": 0.4,
+            "incomeBonus": 1,
+            "maxLevel": 3
+          },
+          {
+            "id": "penetration_testing",
+            "name": "Тестирование на уязвимости",
+            "baseCost": 30,
+            "successChance": 0.55,
+            "incomeBonus": 2,
+            "maxLevel": 3
+          },
+          {
+            "id": "firewall_solutions",
+            "name": "Решения для файервола",
+            "baseCost": 50,
+            "successChance": 0.7,
+            "incomeBonus": 3,
+            "maxLevel": 3
+          },
+          {
+            "id": "encryption_tools",
+            "name": "Инструменты шифрования",
+            "baseCost": 90,
+            "successChance": 0.8,
+            "incomeBonus": 5,
+            "maxLevel": 3
+          },
+          {
+            "id": "threat_detection",
+            "name": "Обнаружение угроз",
+            "baseCost": 140,
+            "successChance": 0.88,
+            "incomeBonus": 8,
+            "maxLevel": 3
+          },
+          {
+            "id": "soc_services",
+            "name": "SOC услуги",
+            "baseCost": 220,
+            "successChance": 0.93,
+            "incomeBonus": 12,
+            "maxLevel": 3
+          },
+          {
+            "id": "incident_response",
+            "name": "Реагирование на инциденты",
+            "baseCost": 360,
+            "successChance": 0.97,
+            "incomeBonus": 18,
+            "maxLevel": 2
+          },
+          {
+            "id": "compliance_solutions",
+            "name": "Решения для соответствия",
+            "baseCost": 550,
+            "successChance": 0.98,
+            "incomeBonus": 25,
+            "maxLevel": 2
+          },
+          {
+            "id": "zero_trust_platform",
+            "name": "Zero Trust платформа",
+            "baseCost": 850,
+            "successChance": 0.99,
+            "incomeBonus": 35,
+            "maxLevel": 1
+          },
+          {
+            "id": "security_leader",
+            "name": "Лидер кибербезопасности",
+            "baseCost": 1300,
+            "successChance": 0.995,
+            "incomeBonus": 50,
+            "maxLevel": 1
+          }
         ]
       }
     ]

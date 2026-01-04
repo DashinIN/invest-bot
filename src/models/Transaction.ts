@@ -17,7 +17,7 @@ export function initTransaction(sequelize: Sequelize) {
         primaryKey: true,
         autoIncrement: true
       },
-      user_id: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
@@ -38,8 +38,8 @@ export function initTransaction(sequelize: Sequelize) {
       sequelize,
       tableName: 'transactions',
       timestamps: false,
-      underscored: true,
-      createdAt: 'created_at',
+      underscored: false,
+      createdAt: false,
       updatedAt: false
     }
   );

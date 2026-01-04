@@ -181,57 +181,57 @@
     {
       "id": "novice",
       "name": "Новичок",
-      "min_level": 1,
-      "min_income": 0,
+      "minLevel": 1,
+      "minIncome": 0,
       "description": "Начинаешь свой путь в бизнесе"
     },
     {
       "id": "amateur",
       "name": "Любитель",
-      "min_level": 5,
-      "min_income": 100,
+      "minLevel": 5,
+      "minIncome": 100,
       "description": "Осваиваешь основы инвестирования"
     },
     {
       "id": "entrepreneur",
       "name": "Предприниматель",
-      "min_level": 15,
-      "min_income": 500,
+      "minLevel": 15,
+      "minIncome": 500,
       "description": "Развиваешь свой первый бизнес"
     },
     {
       "id": "businessman",
       "name": "Бизнесмен",
-      "min_level": 30,
-      "min_income": 2000,
+      "minLevel": 30,
+      "minIncome": 2000,
       "description": "Управляешь несколькими бизнесами"
     },
     {
       "id": "magnate",
       "name": "Магнат",
-      "min_level": 50,
-      "min_income": 10000,
+      "minLevel": 50,
+      "minIncome": 10000,
       "description": "Владеешь значительным капиталом"
     },
     {
       "id": "tycoon",
       "name": "Магнат-промышленник",
-      "min_level": 75,
-      "min_income": 50000,
+      "minLevel": 75,
+      "minIncome": 50000,
       "description": "Доминируешь на нескольких рынках"
     },
     {
       "id": "oligarch",
       "name": "Олигарх",
-      "min_level": 100,
-      "min_income": 100000,
+      "minLevel": 100,
+      "minIncome": 100000,
       "description": "Титан промышленности и финансов"
     },
     {
       "id": "god_of_capital",
       "name": "Бог капитала",
-      "min_level": 150,
-      "min_income": 500000,
+      "minLevel": 150,
+      "minIncome": 500000,
       "description": "Легендарный инвестор всех времён"
     }
   ]

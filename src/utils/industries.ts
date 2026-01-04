@@ -10,18 +10,18 @@ interface Industry {
 interface Asset {
   id: string;
   name: string;
-  base_income: number;
-  base_cost?: number;
+  baseIncome: number;
+  baseCost: number;
   actions: Action[];
 }
 
 interface Action {
   id: string;
   name: string;
-  base_cost: number;
-  success_chance: number;
-  income_bonus: number;
-  max_level: number;
+  baseCost: number;
+  successChance: number;
+  incomeBonus: number;
+  maxLevel: number;
 }
 
 interface AchievementConfig {

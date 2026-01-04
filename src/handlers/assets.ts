@@ -15,7 +15,7 @@ export function registerAssetHandlers(bot: Telegraf) {
       const user = await User.findByPk(userId);
       if (!user) return ctx.answerCbQuery('❌ Вы не зарегистрированы');
 
-      const assets = await UserAsset.findAll({ where: { user_id: userId } });
+      const assets = await UserAsset.findAll({ where: { userId } });
 
       if (assets.length === 0) {
         return ctx.editMessageText(
@@ -86,8 +86,8 @@ export function registerAssetHandlers(bot: Telegraf) {
 
       const assets = await UserAsset.findAll({
         where: {
-          user_id: userId,
-          industry_id: industryId
+          userId,
+          industryId
         }
       });
 
@@ -153,7 +153,7 @@ export function registerAssetHandlers(bot: Telegraf) {
 
       const buttons: any[] = [];
       for (const action of assetData.actions) {
-        const cost = calculateActionCost(action.base_cost, userAsset.level);
+        const cost = calculateActionCost(action.baseCost, userAsset.level);
         buttons.push([
           {
             text: `${action.name} (${cost} монет)`,
@@ -199,7 +199,7 @@ export function registerAssetHandlers(bot: Telegraf) {
         return ctx.answerCbQuery('❌ Действие не найдено');
       }
 
-      const cost = calculateActionCost(action.base_cost, userAsset.level);
+      const cost = calculateActionCost(action.baseCost, userAsset.level);
 
       if (!canAffordAction(user.currency, cost)) {
         return ctx.answerCbQuery(
@@ -208,14 +208,14 @@ export function registerAssetHandlers(bot: Telegraf) {
       }
 
       // Выполняем действие
-      const success = executeAction(action.success_chance);
+      const success = executeAction(action.successChance);
 
       // Обновляем данные
       user.currency -= cost;
 
       if (success) {
         // Успех - увеличиваем доход
-        const incomeBenefit = action.income_bonus;
+        const incomeBenefit = action.incomeBonus;
         userAsset.currentIncome += incomeBenefit;
         user.totalIncome += incomeBenefit;
 
@@ -225,7 +225,7 @@ export function registerAssetHandlers(bot: Telegraf) {
         const resultMessage =
           `🎉 **УСПЕХ!**\n\n` +
           `Действие "${action.name}" выполнено!\n\n` +
-          `✨ Доход активности повышен на +${action.income_bonus} монет\n` +
+          `✨ Доход активности повышен на +${action.incomeBonus} монет\n` +
           `📈 Новый доход актива: ${userAsset.currentIncome}/день\n\n` +
           `💰 Ваш баланс: ${user.currency} монет`;
 

@@ -27,11 +27,11 @@ export function initUser(sequelize: Sequelize) {
         type: DataTypes.STRING,
         allowNull: true
       },
-      first_name: {
+      firstName: {
         type: DataTypes.STRING,
         allowNull: true
       },
-      last_name: {
+      lastName: {
         type: DataTypes.STRING,
         allowNull: true
       },
@@ -47,15 +47,15 @@ export function initUser(sequelize: Sequelize) {
         type: DataTypes.STRING,
         defaultValue: 'novice'
       },
-      total_income: {
+      totalIncome: {
         type: DataTypes.INTEGER,
         defaultValue: 0
       },
-      total_assets: {
+      totalAssets: {
         type: DataTypes.INTEGER,
         defaultValue: 0
       },
-      last_income_claim: {
+      lastIncomeClaim: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
       }
@@ -64,7 +64,7 @@ export function initUser(sequelize: Sequelize) {
       sequelize,
       tableName: 'users',
       timestamps: true,
-      underscored: true
+      underscored: false
     }
   );
 

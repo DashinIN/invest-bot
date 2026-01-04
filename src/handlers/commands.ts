@@ -41,8 +41,8 @@ export function registerCommands(bot: Telegraf) {
         user = await User.create({
           id: userId,
           username: ctx.from?.username,
-          first_name: ctx.from?.first_name,
-          last_name: ctx.from?.last_name,
+          firstName: ctx.from?.first_name,
+          lastName: ctx.from?.last_name,
           currency: config.startingCurrency,
           level: 1,
           status: 'novice'

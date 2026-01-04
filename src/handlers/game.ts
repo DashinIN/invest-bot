@@ -53,8 +53,8 @@ export function registerGameHandlers(bot: Telegraf) {
       // Получаем все купленные активы пользователя в этой индустрии
       const ownedAssets = await UserAsset.findAll({
         where: {
-          userId: userId,
-          industryId: industryId
+          userId,
+          industryId
         }
       });
 
@@ -83,7 +83,7 @@ export function registerGameHandlers(bot: Telegraf) {
       }
 
       const buttons = availableAssets.map(asset => {
-        const cost = calculateActionCost(asset.base_cost || 1000, 1);
+        const cost = calculateActionCost(asset.baseCost, 1);
         return [
           {
             text: `${asset.name} (${cost} 💰)`,
@@ -125,14 +125,14 @@ export function registerGameHandlers(bot: Telegraf) {
       const asset = getAsset(industryId, assetId);
       if (!asset) return ctx.answerCbQuery('❌ Актив не найден');
 
-      const cost = calculateActionCost(asset.base_cost || 1000, 1);
+      const cost = calculateActionCost(asset.baseCost || 1000, 1);
       const canAfford = user.currency >= cost;
 
       const message =
         `💼 **${asset.name}**\n\n` +
         `📝 Инвестиционный актив\n\n` +
         `💰 Стоимость: ${cost} монет\n` +
-        `📈 Базовый доход: ${asset.base_income} монет/день\n` +
+        `📈 Базовый доход: ${asset.baseIncome} монет/день\n` +
         `🎯 Действий: ${asset.actions.length}\n\n` +
         `**Ваш баланс:** ${user.currency} монет\n` +
         `${canAfford ? '✅ Достаточно средств' : '❌ Недостаточно средств'}`;
@@ -166,6 +166,8 @@ export function registerGameHandlers(bot: Telegraf) {
       const industryId = ctx.match?.[1];
       const assetId = ctx.match?.[2];
 
+      console.log('buy_asset params', { userId, industryId, assetId });
+
       if (!userId || !industryId || !assetId) return ctx.answerCbQuery('❌ Ошибка');
 
       const user = await User.findByPk(userId);
@@ -174,14 +176,14 @@ export function registerGameHandlers(bot: Telegraf) {
       const asset = getAsset(industryId, assetId);
       if (!asset) return ctx.answerCbQuery('❌ Актив не найден');
 
-      const cost = calculateActionCost(asset.base_cost || 1000, 1);
+      const cost = calculateActionCost(asset.baseCost, 1);
 
       // Проверяем, уже ли есть актив
       const existing = await UserAsset.findOne({
         where: {
-          user_id: userId,
-          industry_id: industryId,
-          asset_id: assetId
+          userId,
+          industryId,
+          assetId
         }
       });
 
@@ -195,18 +197,18 @@ export function registerGameHandlers(bot: Telegraf) {
 
       // Создаем новый актив
       await UserAsset.create({
-        user_id: userId,
-        industry_id: industryId,
-        asset_id: assetId,
+        userId,
+        industryId,
+        assetId,
         level: 1,
-        current_cost: cost,
-        current_income: asset.base_income
+        currentCost: cost,
+        currentIncome: asset.baseIncome
       });
 
       // Обновляем статистику пользователя
       user.currency -= cost;
       user.totalAssets += 1;
-      user.totalIncome += asset.base_income;
+      user.totalIncome += asset.baseIncome;
       await user.save();
 
       // Показываем сообщение о успешной покупке
@@ -214,7 +216,7 @@ export function registerGameHandlers(bot: Telegraf) {
         `🎉 **УСПЕШНО!**\n\n` +
         `Вы приобрели "${asset.name}"!\n\n` +
         `💸 Потрачено: ${cost} монет\n` +
-        `📈 Теперь получаете +${asset.base_income} монет/день\n\n` +
+        `📈 Теперь получаете +${asset.baseIncome} монет/день\n\n` +
         `💰 Ваш баланс: ${user.currency} монет\n` +
         `📦 Всего активов: ${user.totalAssets}`;
 
