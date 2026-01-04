@@ -37,6 +37,7 @@ export function schedulePassiveIncome() {
       console.log('💰 Distributing daily passive income...');
 
       const users = await User.findAll();
+      console.log(`   Processing ${users.length} users...`);
 
       for (const user of users) {
         const assets = await UserAsset.findAll({
@@ -49,8 +50,8 @@ export function schedulePassiveIncome() {
         }
 
         if (totalIncome > 0) {
+          const oldCurrency = user.currency;
           user.currency = user.currency + totalIncome;
-          user.lastIncomeClaim = new Date();
           await user.save();
 
           await Transaction.create({
@@ -59,6 +60,8 @@ export function schedulePassiveIncome() {
             amount: totalIncome,
             description: `Daily passive income: ${totalIncome}`
           });
+
+          console.log(`   User ${user.id}: +${totalIncome} (${oldCurrency} → ${user.currency})`);
         }
       }
 

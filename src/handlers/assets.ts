@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
 import { User, UserAsset } from '../models';
 import { getAllIndustries, getAsset, getAction } from '../utils/industries';
-import { calculateActionCost, executeAction, getPlayerStatus, canAffordAction } from '../utils/calculator';
+import { calculateActionCost, executeAction, canAffordAction } from '../utils/calculator';
 
 export function registerAssetHandlers(bot: Telegraf) {
   // =============== МОИ АКТИВЫ ===============

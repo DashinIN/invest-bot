@@ -22,7 +22,7 @@ module.exports = {
         allowNull: true
       },
       currency: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.INTEGER,
         defaultValue: 1000,
         comment: 'Game currency amount'
       },
@@ -35,7 +35,7 @@ module.exports = {
         defaultValue: 'novice'
       },
       total_income: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.INTEGER,
         defaultValue: 0,
         comment: 'Total passive income per day'
       },
@@ -81,11 +81,11 @@ module.exports = {
         defaultValue: 1
       },
       current_cost: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.INTEGER,
         comment: 'Current cost for next action'
       },
       current_income: {
-        type: Sequelize.BIGINT,
+        type: Sequelize.INTEGER,
         comment: 'Current passive income from this asset'
       },
       created_at: {
@@ -172,7 +172,7 @@ module.exports = {
         comment: 'buy_asset, action, income_claim'
       },
       amount: {
-        type: Sequelize.BIGINT
+        type: Sequelize.INTEGER
       },
       description: {
         type: Sequelize.STRING

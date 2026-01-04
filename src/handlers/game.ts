@@ -41,6 +41,9 @@ export function registerGameHandlers(bot: Telegraf) {
       if (!userId || !industryId) return ctx.answerCbQuery('❌ Ошибка');
 
       const industries = getAllIndustries();
+      
+      console.log('industries', industries)
+
       const industry = industries.find(i => i.id === industryId);
 
       if (!industry) {
@@ -50,10 +53,12 @@ export function registerGameHandlers(bot: Telegraf) {
       // Получаем все купленные активы пользователя в этой индустрии
       const ownedAssets = await UserAsset.findAll({
         where: {
-          user_id: userId,
-          industry_id: industryId
+          userId: userId,
+          industryId: industryId
         }
       });
+
+      console.log('owned assets', ownedAssets)
 
       const ownedAssetIds = new Set(ownedAssets.map(a => a.assetId));
 
@@ -121,7 +126,7 @@ export function registerGameHandlers(bot: Telegraf) {
       if (!asset) return ctx.answerCbQuery('❌ Актив не найден');
 
       const cost = calculateActionCost(asset.base_cost || 1000, 1);
-      const canAfford = user.currency >= BigInt(cost);
+      const canAfford = user.currency >= cost;
 
       const message =
         `💼 **${asset.name}**\n\n` +
@@ -226,64 +231,6 @@ export function registerGameHandlers(bot: Telegraf) {
     } catch (error) {
       console.error('Error buying asset:', error);
       ctx.answerCbQuery('❌ Ошибка при покупке');
-    }
-  });
-
-  // =============== ПОЛУЧИТЬ ДОХОД ===============
-  
-  bot.action('claim', async (ctx) => {
-    try {
-      const userId = ctx.from?.id;
-      if (!userId) return ctx.answerCbQuery('❌ Ошибка');
-
-      const user = await User.findByPk(userId);
-      if (!user) return ctx.answerCbQuery('❌ Вы не зарегистрированы');
-
-      const lastClaim = new Date(user.lastIncomeClaim || 0);
-      const now = new Date();
-      const hoursSince = (now.getTime() - lastClaim.getTime()) / (1000 * 60 * 60);
-
-      if (hoursSince < 24) {
-        const hoursLeft = Math.ceil(24 - hoursSince);
-        const minutesLeft = Math.ceil((24 - hoursSince) * 60) % 60;
-        
-        return ctx.editMessageText(
-          `⏰ **Доход будет доступен через:**\n\n` +
-          `${hoursLeft}ч ${minutesLeft}м`,
-          {
-            parse_mode: 'Markdown',
-            reply_markup: {
-              inline_keyboard: [
-                [{ text: '◀️ Назад', callback_data: 'back_menu' }]
-              ]
-            }
-          }
-        );
-      }
-
-      const income = user.totalIncome;
-      user.currency += income;
-      user.lastIncomeClaim = now;
-      await user.save();
-
-      const message =
-        `💰 **ДОХОД ПОЛУЧЕН!**\n\n` +
-        `✨ Вы получили ${income} монет за сегодня\n\n` +
-        `🏦 Ваш баланс: ${user.currency} монет`;
-
-      await ctx.editMessageText(message, {
-        parse_mode: 'Markdown',
-        reply_markup: {
-          inline_keyboard: [
-            [{ text: '🏪 Купить активы', callback_data: 'shop' }],
-            [{ text: '📦 Мои активы', callback_data: 'my_assets' }],
-            [{ text: '◀️ Назад', callback_data: 'back_menu' }]
-          ]
-        }
-      });
-    } catch (error) {
-      console.error('Error claiming income:', error);
-      ctx.answerCbQuery('❌ Ошибка при получении дохода');
     }
   });
 
