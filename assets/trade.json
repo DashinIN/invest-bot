@@ -1,0 +1,93 @@
+{
+  "industry": {
+    "id": "trade",
+    "name": "Торговля",
+    "assets": [
+      {
+        "id": "supermarket",
+        "name": "Супермаркет",
+        "base_income": 14,
+        "actions": [
+          { "id": "store_opening", "name": "Открытие магазина", "base_cost": 12, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "grocery_section", "name": "Продукты питания", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "electronics_section", "name": "Электроника", "base_cost": 45, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "clothing_section", "name": "Одежда и мода", "base_cost": 85, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "pharmacy", "name": "Аптека", "base_cost": 130, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "self_checkout", "name": "Самообслуживание", "base_cost": 210, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "loyalty_program", "name": "Программа лояльности", "base_cost": 340, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "online_delivery", "name": "Онлайн доставка", "base_cost": 530, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "mega_chain", "name": "Мега-сеть магазинов", "base_cost": 820, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "retail_empire", "name": "Империя розницы", "base_cost": 1280, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "restaurant_chain",
+        "name": "Сеть ресторанов",
+        "base_income": 15,
+        "actions": [
+          { "id": "fast_casual", "name": "Fast Casual концепция", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "fine_dining", "name": "Fine Dining", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "delivery_service", "name": "Сервис доставки", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "catering_service", "name": "Кейтеринг услуги", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "ghost_kitchen", "name": "Ghost Kitchen", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "franchise_expansion", "name": "Франшиза", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "michelin_star", "name": "Звезда Мишлена", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "celebrity_chef", "name": "Знаменитый шефу", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "global_chain", "name": "Глобальная сеть", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "food_empire", "name": "Продовольственная империя", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "marketplace",
+        "name": "Маркетплейс",
+        "base_income": 16,
+        "actions": [
+          { "id": "seller_onboarding", "name": "Подключение продавцов", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "payment_gateway", "name": "Платежный шлюз", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "logistics_network", "name": "Логистическая сеть", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "seller_tools", "name": "Инструменты для продавцов", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "fraud_detection", "name": "Защита от мошенничества", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "premium_sellers", "name": "Премиум продавцы", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "live_streaming", "name": "Live Shopping", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "international_expansion", "name": "Международная экспансия", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "market_leader", "name": "Лидер маркетплейса", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "ecommerce_empire", "name": "E-commerce империя", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "jewelry_store",
+        "name": "Ювелирный магазин",
+        "base_income": 13,
+        "actions": [
+          { "id": "gold_jewelry", "name": "Золотые украшения", "base_cost": 20, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "diamond_selection", "name": "Подбор бриллиантов", "base_cost": 40, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "custom_design", "name": "Кастомный дизайн", "base_cost": 70, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "luxury_collection", "name": "Люкс коллекция", "base_cost": 120, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "certification", "name": "Сертификация камней", "base_cost": 180, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "auction_house", "name": "Аукционный дом", "base_cost": 260, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "museum_pieces", "name": "Музейные экспонаты", "base_cost": 420, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "investment_diamonds", "name": "Инвестиционные бриллианты", "base_cost": 650, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "crown_jewels", "name": "Королевские драгоценности", "base_cost": 1000, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "jewelry_legend", "name": "Легенда ювелирного дела", "base_cost": 1600, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "fashion_boutique",
+        "name": "Модный бутик",
+        "base_income": 14,
+        "actions": [
+          { "id": "designer_collections", "name": "Дизайнерские коллекции", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "luxury_fabrics", "name": "Люксовые ткани", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "vip_styling", "name": "VIP стайлинг", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "seasonal_shows", "name": "Сезонные показы", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "influencer_collab", "name": "Сотрудничество с инфлюэнсерами", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "flagship_store", "name": "Флагманский магазин", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "haute_couture", "name": "Haute Couture", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "global_presence", "name": "Глобальное присутствие", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "fashion_icon", "name": "Иконка моды", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "fashion_empire", "name": "Модная империя", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      }
+    ]
+  }
+}

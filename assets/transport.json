@@ -1,0 +1,93 @@
+{
+  "industry": {
+    "id": "transport",
+    "name": "Перевозки",
+    "assets": [
+      {
+        "id": "taxi_service",
+        "name": "Сервис такси",
+        "base_income": 12,
+        "actions": [
+          { "id": "driver_recruitment", "name": "Привлечение водителей", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "vehicle_fleet", "name": "Автопарк", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "gps_tracking", "name": "GPS отслеживание", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "premium_service", "name": "Премиум сервис", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "corporate_accounts", "name": "Корпоративные клиенты", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "airport_express", "name": "Экспресс в аэропорт", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "electric_fleet", "name": "Электромобили", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "autonomous_vehicles", "name": "Беспилотные автомобили", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "global_network", "name": "Глобальная сеть", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "transport_empire", "name": "Транспортная империя", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "logistics_company",
+        "name": "Логистическая компания",
+        "base_income": 14,
+        "actions": [
+          { "id": "warehouse_network", "name": "Сеть складов", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "last_mile_delivery", "name": "Last-mile доставка", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "tracking_system", "name": "Система отслеживания", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "cold_chain", "name": "Холодовая цепь", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "international_shipping", "name": "Международные перевозки", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "customs_brokerage", "name": "Таможенное брокирование", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "drone_delivery", "name": "Доставка дронами", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "supply_chain_ai", "name": "AI для цепи поставок", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "global_leader", "name": "Глобальный лидер", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "logistics_empire", "name": "Логистическая империя", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "airline",
+        "name": "Авиалиния",
+        "base_income": 18,
+        "actions": [
+          { "id": "domestic_routes", "name": "Внутренние маршруты", "base_cost": 20, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "aircraft_lease", "name": "Аренда самолетов", "base_cost": 40, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "frequent_flyer", "name": "Программа лояльности", "base_cost": 70, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "business_class", "name": "Business Class", "base_cost": 120, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "international_routes", "name": "Международные маршруты", "base_cost": 180, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "cargo_operations", "name": "Грузовые перевозки", "base_cost": 260, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "first_class", "name": "First Class", "base_cost": 420, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "alliance_network", "name": "Альянс авиалиний", "base_cost": 650, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "hub_dominance", "name": "Доминирование на хабе", "base_cost": 1000, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "airline_empire", "name": "Авиа-империя", "base_cost": 1600, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "shipping_company",
+        "name": "Судоходная компания",
+        "base_income": 16,
+        "actions": [
+          { "id": "container_ships", "name": "Контейнеровозы", "base_cost": 20, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "bulk_carriers", "name": "Балк-каррьеры", "base_cost": 40, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "tanker_fleet", "name": "Танкеры", "base_cost": 70, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "port_operations", "name": "Портовые операции", "base_cost": 120, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "charter_services", "name": "Чартерные сервисы", "base_cost": 180, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "customs_clearance", "name": "Таможенное оформление", "base_cost": 260, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "mega_ships", "name": "Мега-суда", "base_cost": 420, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "LNG_carriers", "name": "LNG танкеры", "base_cost": 650, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "global_routes", "name": "Глобальные маршруты", "base_cost": 1000, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "shipping_empire", "name": "Судоходная империя", "base_cost": 1600, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "railway",
+        "name": "Железнодорожная сеть",
+        "base_income": 15,
+        "actions": [
+          { "id": "regional_lines", "name": "Региональные линии", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "passenger_trains", "name": "Пассажирские поезда", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "freight_service", "name": "Грузовые перевозки", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "express_service", "name": "Экспресс-сервис", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "sleeper_cars", "name": "Спальные вагоны", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "high_speed_rail", "name": "Высокоскоростные поезда", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "luxury_trains", "name": "Люкс-поезда", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "transcontinental", "name": "Трансконтинентальные маршруты", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "rail_network_leader", "name": "Лидер сети", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "railway_empire", "name": "Железнодорожная империя", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      }
+    ]
+  }
+}

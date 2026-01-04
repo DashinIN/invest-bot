@@ -1,0 +1,179 @@
+{
+  "industry": {
+    "id": "showbiz",
+    "name": "Шоу-бизнес",
+    "assets": [
+      {
+        "id": "music_label",
+        "name": "Музыкальный лейбл",
+        "base_income": 10,
+        "actions": [
+          { "id": "home_studio", "name": "Домашняя студия", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "sound_producer", "name": "Саунд-продюсер", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "indie_artist", "name": "Контракт с инди-артистом", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "marketing_release", "name": "Маркетинг релиза", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "radio_rotation", "name": "Радиоротация", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "national_tour", "name": "Национальный тур", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "intl_distributor", "name": "Международный дистрибьютор", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 3 },
+          { "id": "rights_catalog", "name": "Каталог прав", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "hit_of_year", "name": "Хит года", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "generation_star", "name": "Звезда поколения", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "film_studio",
+        "name": "Киностудия",
+        "base_income": 18,
+        "actions": [
+          { "id": "short_film", "name": "Короткометражка", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "indie_movie", "name": "Независимый фильм", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "production_team", "name": "Продакшн-команда", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "famous_actor", "name": "Известный актёр", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "festival_screening", "name": "Фестивальный показ", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "intl_release", "name": "Международный прокат", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "sequel", "name": "Сиквел", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "streaming_contract", "name": "Контракт со стримингом", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "blockbuster", "name": "Блокбастер", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "film_franchise", "name": "Кинофраншиза", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "tv_channel",
+        "name": "Телеканал",
+        "base_income": 15,
+        "actions": [
+          { "id": "night_air", "name": "Ночной эфир", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+          { "id": "own_show", "name": "Собственное шоу", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+          { "id": "morning_format", "name": "Утренний формат", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+          { "id": "content_purchase", "name": "Закупка контента", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+          { "id": "ad_department", "name": "Рекламный отдел", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+          { "id": "prime_time", "name": "Прайм-тайм", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+          { "id": "reality_show", "name": "Реалити-шоу", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+          { "id": "federal_network", "name": "Федеральная сетка", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+          { "id": "national_coverage", "name": "Национальный охват", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+          { "id": "intl_version", "name": "Международная версия", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+      },
+      {
+        "id": "streaming_service",
+        "name": "Стриминговый сервис",
+        "base_income": 20,
+        "actions": [
+            { "id": "beta_launch", "name": "Бета-запуск", "base_cost": 15, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+            { "id": "mobile_app", "name": "Мобильное приложение", "base_cost": 30, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+            { "id": "exclusive_content", "name": "Эксклюзивный контент", "base_cost": 50, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+            { "id": "subscription_model", "name": "Подписочная модель", "base_cost": 90, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+            { "id": "recommendation_ai", "name": "AI-рекомендации", "base_cost": 140, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+            { "id": "original_series", "name": "Оригинальные сериалы", "base_cost": 220, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+            { "id": "global_launch", "name": "Глобальный запуск", "base_cost": 360, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+            { "id": "licensing_deals", "name": "Лицензионные сделки", "base_cost": 550, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+            { "id": "market_leader", "name": "Лидер рынка", "base_cost": 850, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+            { "id": "media_ecosystem", "name": "Медиа-экосистема", "base_cost": 1300, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+        ]
+     },
+     {
+  "id": "concert_agency",
+  "name": "Концертное агентство",
+  "base_income": 14,
+  "actions": [
+    { "id": "local_gigs", "name": "Локальные выступления", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+    { "id": "tour_bus", "name": "Туровый автобус", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+    { "id": "booking_team", "name": "Букинг-команда", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+    { "id": "festival_stage", "name": "Фестивальная сцена", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+    { "id": "security_service", "name": "Служба безопасности", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+    { "id": "national_tours", "name": "Национальные туры", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+    { "id": "intl_festivals", "name": "Международные фестивали", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+    { "id": "exclusive_contracts", "name": "Эксклюзивные контракты", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+    { "id": "arena_tours", "name": "Арена-туры", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+    { "id": "world_tours", "name": "Мировые туры", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+  ]
+},
+   {
+  "id": "producer_center",
+  "name": "Продюсерский центр",
+  "base_income": 16,
+  "actions": [
+    { "id": "talent_search", "name": "Поиск талантов", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+    { "id": "training_program", "name": "Программа обучения", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+    { "id": "image_building", "name": "Создание образа", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+    { "id": "media_push", "name": "Медиа-продвижение", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+    { "id": "tv_contracts", "name": "ТВ-контракты", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+    { "id": "brand_collabs", "name": "Коллаборации с брендами", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+    { "id": "star_management", "name": "Управление звёздами", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+    { "id": "media_holdings", "name": "Медиахолдинги", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+    { "id": "celebrity_factory", "name": "Фабрика знаменитостей", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+    { "id": "global_icons", "name": "Глобальные иконы", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+  ]
+},
+{
+  "id": "radio_station",
+  "name": "Радиостанция",
+  "base_income": 12,
+  "actions": [
+    { "id": "local_broadcast", "name": "Локальное вещание", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+    { "id": "dj_show", "name": "DJ-шоу", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+    { "id": "listener_calls", "name": "Прямые звонки", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+    { "id": "ad_blocks", "name": "Рекламные блоки", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+    { "id": "regional_network", "name": "Региональная сеть", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+    { "id": "live_events", "name": "Прямые эфиры с событий", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+    { "id": "national_wave", "name": "Национальная волна", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+    { "id": "digital_radio", "name": "Цифровое радио", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+    { "id": "top_station", "name": "Топ-радио", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+    { "id": "radio_brand", "name": "Радио-бренд", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+  ]
+},
+{
+  "id": "tiktok_house",
+  "name": "TikTok-дом",
+  "base_income": 11,
+  "actions": [
+    { "id": "creator_room", "name": "Комната контента", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+    { "id": "viral_challenges", "name": "Вирусные челленджи", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+    { "id": "editing_team", "name": "Команда монтажа", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+    { "id": "brand_integrations", "name": "Бренд-интеграции", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+    { "id": "algorithm_boost", "name": "Алгоритмический буст", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+    { "id": "talent_house", "name": "Дом талантов", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+    { "id": "media_partners", "name": "Медиа-партнёры", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+    { "id": "platform_contract", "name": "Контракт с платформой", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+    { "id": "trend_setter", "name": "Трендсеттер", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+    { "id": "global_influence", "name": "Глобальное влияние", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+  ]
+},
+{
+  "id": "pr_agency",
+  "name": "PR-агентство",
+  "base_income": 13,
+  "actions": [
+    { "id": "press_release", "name": "Пресс-релизы", "base_cost": 10, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+    { "id": "media_contacts", "name": "Медиа-контакты", "base_cost": 25, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+    { "id": "reputation_control", "name": "Контроль репутации", "base_cost": 40, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+    { "id": "crisis_pr", "name": "Антикризисный PR", "base_cost": 80, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+    { "id": "brand_strategy", "name": "Бренд-стратегия", "base_cost": 120, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+    { "id": "national_clients", "name": "Национальные клиенты", "base_cost": 200, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+    { "id": "intl_campaigns", "name": "Международные кампании", "base_cost": 350, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+    { "id": "corporate_reputation", "name": "Корпоративная репутация", "base_cost": 500, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+    { "id": "market_leader", "name": "Лидер PR-рынка", "base_cost": 800, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+    { "id": "global_pr_brand", "name": "Глобальный PR-бренд", "base_cost": 1200, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+  ]
+},
+{
+  "id": "media_holding",
+  "name": "Медиахолдинг",
+  "base_income": 25,
+  "actions": [
+    { "id": "asset_consolidation", "name": "Консолидация активов", "base_cost": 20, "success_chance": 0.40, "income_bonus": 1, "max_level": 3 },
+    { "id": "cross_promotion", "name": "Кросс-промо", "base_cost": 40, "success_chance": 0.55, "income_bonus": 2, "max_level": 3 },
+    { "id": "unified_ads", "name": "Единая реклама", "base_cost": 70, "success_chance": 0.70, "income_bonus": 3, "max_level": 3 },
+    { "id": "digital_strategy", "name": "Цифровая стратегия", "base_cost": 120, "success_chance": 0.80, "income_bonus": 5, "max_level": 3 },
+    { "id": "data_analytics", "name": "Аналитика данных", "base_cost": 180, "success_chance": 0.88, "income_bonus": 8, "max_level": 3 },
+    { "id": "national_media", "name": "Национальные медиа", "base_cost": 260, "success_chance": 0.93, "income_bonus": 12, "max_level": 3 },
+    { "id": "intl_assets", "name": "Международные активы", "base_cost": 420, "success_chance": 0.97, "income_bonus": 18, "max_level": 2 },
+    { "id": "media_monopoly", "name": "Медиа-монополия", "base_cost": 650, "success_chance": 0.98, "income_bonus": 25, "max_level": 2 },
+    { "id": "market_dominator", "name": "Доминирование рынка", "base_cost": 1000, "success_chance": 0.99, "income_bonus": 35, "max_level": 1 },
+    { "id": "global_media_empire", "name": "Глобальная медиа-империя", "base_cost": 1600, "success_chance": 0.995, "income_bonus": 50, "max_level": 1 }
+  ]
+}
+
+    ]
+  }
+}

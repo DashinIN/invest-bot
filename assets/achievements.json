@@ -1,0 +1,238 @@
+{
+  "achievements": [
+    {
+      "id": "first_purchase",
+      "name": "Первый шаг",
+      "description": "Купить первый актив",
+      "icon": "🎯",
+      "reward": 100,
+      "trigger": "buy_first_asset"
+    },
+    {
+      "id": "millionaire",
+      "name": "Миллионер",
+      "description": "Накопить 1,000,000 валюты",
+      "icon": "💰",
+      "reward": 500,
+      "trigger": "currency_milestone",
+      "condition": 1000000
+    },
+    {
+      "id": "billionaire",
+      "name": "Миллиардер",
+      "description": "Накопить 1,000,000,000 валюты",
+      "icon": "🤑",
+      "reward": 2000,
+      "trigger": "currency_milestone",
+      "condition": 1000000000
+    },
+    {
+      "id": "portfolio_master",
+      "name": "Мастер портфеля",
+      "description": "Владеть активами из всех 6 индустрий",
+      "icon": "📊",
+      "reward": 1000,
+      "trigger": "all_industries_owned"
+    },
+    {
+      "id": "lucky_strike",
+      "name": "Удачный удар",
+      "description": "Первый успешный вероятностный шанс",
+      "icon": "🎲",
+      "reward": 200,
+      "trigger": "first_action_success"
+    },
+    {
+      "id": "perfect_roll",
+      "name": "Идеальный бросок",
+      "description": "3 успешных действия подряд",
+      "icon": "⭐",
+      "reward": 300,
+      "trigger": "consecutive_successes",
+      "condition": 3
+    },
+    {
+      "id": "showbiz_master",
+      "name": "Король развлечений",
+      "description": "Максимально прокачать все активы в Шоу-бизнесе",
+      "icon": "🎬",
+      "reward": 800,
+      "trigger": "industry_mastery",
+      "condition": "showbiz"
+    },
+    {
+      "id": "finance_master",
+      "name": "Финансовый гений",
+      "description": "Максимально прокачать все активы в Финансах",
+      "icon": "💳",
+      "reward": 800,
+      "trigger": "industry_mastery",
+      "condition": "finances"
+    },
+    {
+      "id": "tech_pioneer",
+      "name": "Технологический пионер",
+      "description": "Максимально прокачать все активы в Технологиях",
+      "icon": "💻",
+      "reward": 800,
+      "trigger": "industry_mastery",
+      "condition": "tech"
+    },
+    {
+      "id": "real_estate_mogul",
+      "name": "Магнат недвижимости",
+      "description": "Максимально прокачать все активы в Недвижимости",
+      "icon": "🏢",
+      "reward": 800,
+      "trigger": "industry_mastery",
+      "condition": "real_estate"
+    },
+    {
+      "id": "merchant_prince",
+      "name": "Принц торговцев",
+      "description": "Максимально прокачать все активы в Торговле",
+      "icon": "🛒",
+      "reward": 800,
+      "trigger": "industry_mastery",
+      "condition": "trade"
+    },
+    {
+      "id": "transport_tycoon",
+      "name": "Магнат транспорта",
+      "description": "Максимально прокачать все активы в Перевозках",
+      "icon": "✈️",
+      "reward": 800,
+      "trigger": "industry_mastery",
+      "condition": "transport"
+    },
+    {
+      "id": "seven_day_streak",
+      "name": "Неделя активности",
+      "description": "Играть 7 дней подряд",
+      "icon": "📅",
+      "reward": 400,
+      "trigger": "daily_streak",
+      "condition": 7
+    },
+    {
+      "id": "month_grind",
+      "name": "Месячный марафон",
+      "description": "Играть 30 дней подряд",
+      "icon": "🏆",
+      "reward": 1500,
+      "trigger": "daily_streak",
+      "condition": 30
+    },
+    {
+      "id": "empire_builder",
+      "name": "Строитель империи",
+      "description": "Владеть 50 активами",
+      "icon": "👑",
+      "reward": 1200,
+      "trigger": "total_assets_owned",
+      "condition": 50
+    },
+    {
+      "id": "ultra_rich",
+      "name": "Ультра-богач",
+      "description": "Пассивный доход превысил 10,000 в день",
+      "icon": "💎",
+      "reward": 2000,
+      "trigger": "daily_income_milestone",
+      "condition": 10000
+    },
+    {
+      "id": "lucky_sevens",
+      "name": "Везучие семёрки",
+      "description": "7 успешных действий подряд",
+      "icon": "🍀",
+      "reward": 700,
+      "trigger": "consecutive_successes",
+      "condition": 7
+    },
+    {
+      "id": "social_butterfly",
+      "name": "Социальная бабочка",
+      "description": "Пригласить 5 друзей в игру",
+      "icon": "🦋",
+      "reward": 500,
+      "trigger": "referral_count",
+      "condition": 5
+    },
+    {
+      "id": "top_player",
+      "name": "Топ-игрок",
+      "description": "Занять первое место в еженедельном рейтинге",
+      "icon": "🥇",
+      "reward": 1000,
+      "trigger": "weekly_rank",
+      "condition": 1
+    },
+    {
+      "id": "comeback_king",
+      "name": "Король камбэков",
+      "description": "Восстановиться с нуля до топ-10",
+      "icon": "🔄",
+      "reward": 600,
+      "trigger": "comeback_achievement"
+    }
+  ],
+  "statuses": [
+    {
+      "id": "novice",
+      "name": "Новичок",
+      "min_level": 1,
+      "min_income": 0,
+      "description": "Начинаешь свой путь в бизнесе"
+    },
+    {
+      "id": "amateur",
+      "name": "Любитель",
+      "min_level": 5,
+      "min_income": 100,
+      "description": "Осваиваешь основы инвестирования"
+    },
+    {
+      "id": "entrepreneur",
+      "name": "Предприниматель",
+      "min_level": 15,
+      "min_income": 500,
+      "description": "Развиваешь свой первый бизнес"
+    },
+    {
+      "id": "businessman",
+      "name": "Бизнесмен",
+      "min_level": 30,
+      "min_income": 2000,
+      "description": "Управляешь несколькими бизнесами"
+    },
+    {
+      "id": "magnate",
+      "name": "Магнат",
+      "min_level": 50,
+      "min_income": 10000,
+      "description": "Владеешь значительным капиталом"
+    },
+    {
+      "id": "tycoon",
+      "name": "Магнат-промышленник",
+      "min_level": 75,
+      "min_income": 50000,
+      "description": "Доминируешь на нескольких рынках"
+    },
+    {
+      "id": "oligarch",
+      "name": "Олигарх",
+      "min_level": 100,
+      "min_income": 100000,
+      "description": "Титан промышленности и финансов"
+    },
+    {
+      "id": "god_of_capital",
+      "name": "Бог капитала",
+      "min_level": 150,
+      "min_income": 500000,
+      "description": "Легендарный инвестор всех времён"
+    }
+  ]
+}

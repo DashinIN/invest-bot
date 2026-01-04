@@ -1,0 +1,6 @@
+{
+  "development": {
+    "url": "postgresql://admin:123456@postgres:5432/invest_bot",
+    "dialect": "postgres"
+  }
+}
