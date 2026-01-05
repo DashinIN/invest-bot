@@ -7,7 +7,7 @@
         "id": "supermarket",
         "name": "Супермаркет",
         "baseIncome": 14,
-        "baseCost": 1200,
+        "baseCost": 900,
         "actions": [
           {
             "id": "store_opening",
@@ -95,7 +95,7 @@
         "id": "restaurant_chain",
         "name": "Сеть ресторанов",
         "baseIncome": 15,
-        "baseCost": 1500,
+        "baseCost": 1125,
         "actions": [
           {
             "id": "fast_casual",

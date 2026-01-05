@@ -1,180 +1,148 @@
 {
   "achievements": [
     {
-      "id": "first_purchase",
-      "name": "Первый шаг",
+      "id": "first_asset",
+      "name": "Первый актив",
       "description": "Купить первый актив",
       "icon": "🎯",
-      "reward": 100,
-      "trigger": "buy_first_asset"
+      "reward": 50,
+      "trigger": "total_assets_owned",
+      "condition": 1
     },
     {
-      "id": "millionaire",
-      "name": "Миллионер",
-      "description": "Накопить 1,000,000 валюты",
-      "icon": "💰",
-      "reward": 500,
-      "trigger": "currency_milestone",
-      "condition": 1000000
-    },
-    {
-      "id": "billionaire",
-      "name": "Миллиардер",
-      "description": "Накопить 1,000,000,000 валюты",
-      "icon": "🤑",
-      "reward": 2000,
-      "trigger": "currency_milestone",
-      "condition": 1000000000
-    },
-    {
-      "id": "portfolio_master",
-      "name": "Мастер портфеля",
-      "description": "Владеть активами из всех 6 индустрий",
+      "id": "five_assets",
+      "name": "Портфолио",
+      "description": "Владеть 5 активами",
       "icon": "📊",
-      "reward": 1000,
-      "trigger": "all_industries_owned"
+      "reward": 100,
+      "trigger": "total_assets_owned",
+      "condition": 5
     },
     {
-      "id": "lucky_strike",
-      "name": "Удачный удар",
-      "description": "Первый успешный вероятностный шанс",
-      "icon": "🎲",
+      "id": "ten_assets",
+      "name": "Предприниматель",
+      "description": "Владеть 10 активами",
+      "icon": "💼",
       "reward": 200,
-      "trigger": "first_action_success"
+      "trigger": "total_assets_owned",
+      "condition": 10
     },
     {
-      "id": "perfect_roll",
-      "name": "Идеальный бросок",
-      "description": "3 успешных действия подряд",
-      "icon": "⭐",
-      "reward": 300,
-      "trigger": "consecutive_successes",
-      "condition": 3
-    },
-    {
-      "id": "showbiz_master",
-      "name": "Король развлечений",
-      "description": "Максимально прокачать все активы в Шоу-бизнесе",
-      "icon": "🎬",
-      "reward": 800,
-      "trigger": "industry_mastery",
-      "condition": "showbiz"
-    },
-    {
-      "id": "finance_master",
-      "name": "Финансовый гений",
-      "description": "Максимально прокачать все активы в Финансах",
-      "icon": "💳",
-      "reward": 800,
-      "trigger": "industry_mastery",
-      "condition": "finances"
-    },
-    {
-      "id": "tech_pioneer",
-      "name": "Технологический пионер",
-      "description": "Максимально прокачать все активы в Технологиях",
-      "icon": "💻",
-      "reward": 800,
-      "trigger": "industry_mastery",
-      "condition": "tech"
-    },
-    {
-      "id": "real_estate_mogul",
-      "name": "Магнат недвижимости",
-      "description": "Максимально прокачать все активы в Недвижимости",
+      "id": "twenty_assets",
+      "name": "Бизнесмен",
+      "description": "Владеть 20 активами",
       "icon": "🏢",
-      "reward": 800,
-      "trigger": "industry_mastery",
-      "condition": "real_estate"
-    },
-    {
-      "id": "merchant_prince",
-      "name": "Принц торговцев",
-      "description": "Максимально прокачать все активы в Торговле",
-      "icon": "🛒",
-      "reward": 800,
-      "trigger": "industry_mastery",
-      "condition": "trade"
-    },
-    {
-      "id": "transport_tycoon",
-      "name": "Магнат транспорта",
-      "description": "Максимально прокачать все активы в Перевозках",
-      "icon": "✈️",
-      "reward": 800,
-      "trigger": "industry_mastery",
-      "condition": "transport"
-    },
-    {
-      "id": "seven_day_streak",
-      "name": "Неделя активности",
-      "description": "Играть 7 дней подряд",
-      "icon": "📅",
       "reward": 400,
-      "trigger": "daily_streak",
-      "condition": 7
+      "trigger": "total_assets_owned",
+      "condition": 20
     },
     {
-      "id": "month_grind",
-      "name": "Месячный марафон",
-      "description": "Играть 30 дней подряд",
-      "icon": "🏆",
-      "reward": 1500,
-      "trigger": "daily_streak",
-      "condition": 30
-    },
-    {
-      "id": "empire_builder",
-      "name": "Строитель империи",
+      "id": "fifty_assets",
+      "name": "Магнат",
       "description": "Владеть 50 активами",
       "icon": "👑",
-      "reward": 1200,
+      "reward": 800,
       "trigger": "total_assets_owned",
       "condition": 50
     },
     {
-      "id": "ultra_rich",
-      "name": "Ультра-богач",
-      "description": "Пассивный доход превысил 10,000 в день",
+      "id": "hundred_assets",
+      "name": "Олигарх",
+      "description": "Владеть 100 активами",
       "icon": "💎",
-      "reward": 2000,
+      "reward": 1500,
+      "trigger": "total_assets_owned",
+      "condition": 100
+    },
+    {
+      "id": "income_100",
+      "name": "Доход 100",
+      "description": "Пассивный доход 100 в день",
+      "icon": "💰",
+      "reward": 100,
       "trigger": "daily_income_milestone",
+      "condition": 100
+    },
+    {
+      "id": "income_500",
+      "name": "Доход 500",
+      "description": "Пассивный доход 500 в день",
+      "icon": "💸",
+      "reward": 300,
+      "trigger": "daily_income_milestone",
+      "condition": 500
+    },
+    {
+      "id": "income_1000",
+      "name": "Доход 1K",
+      "description": "Пассивный доход 1,000 в день",
+      "icon": "💵",
+      "reward": 800,
+      "trigger": "daily_income_milestone",
+      "condition": 1000
+    },
+    {
+      "id": "balance_1k",
+      "name": "Накопления 1K",
+      "description": "Накопить 1,000 еврорублей",
+      "icon": "🏦",
+      "reward": 100,
+      "trigger": "max_currency_milestone",
+      "condition": 1000
+    },
+    {
+      "id": "balance_10k",
+      "name": "Накопления 10K",
+      "description": "Накопить 10,000 еврорублей",
+      "icon": "🏦",
+      "reward": 1000,
+      "trigger": "max_currency_milestone",
       "condition": 10000
     },
     {
-      "id": "lucky_sevens",
-      "name": "Везучие семёрки",
-      "description": "7 успешных действий подряд",
-      "icon": "🍀",
-      "reward": 700,
-      "trigger": "consecutive_successes",
-      "condition": 7
+      "id": "balance_100k",
+      "name": "Накопления 100K",
+      "description": "Накопить 100,000 еврорублей",
+      "icon": "💳",
+      "reward": 3000,
+      "trigger": "max_currency_milestone",
+      "condition": 100000
     },
     {
-      "id": "social_butterfly",
-      "name": "Социальная бабочка",
-      "description": "Пригласить 5 друзей в игру",
-      "icon": "🦋",
-      "reward": 500,
-      "trigger": "referral_count",
-      "condition": 5
+      "id": "actions_10",
+      "name": "Практик",
+      "description": "Выполнить 10 действий",
+      "icon": "⚡",
+      "reward": 100,
+      "trigger": "total_actions_executed",
+      "condition": 10
     },
     {
-      "id": "top_player",
-      "name": "Топ-игрок",
-      "description": "Занять первое место в еженедельном рейтинге",
-      "icon": "🥇",
-      "reward": 1000,
-      "trigger": "weekly_rank",
-      "condition": 1
+      "id": "actions_50",
+      "name": "Опытный",
+      "description": "Выполнить 50 действий",
+      "icon": "🔥",
+      "reward": 300,
+      "trigger": "total_actions_executed",
+      "condition": 50
     },
     {
-      "id": "comeback_king",
-      "name": "Король камбэков",
-      "description": "Восстановиться с нуля до топ-10",
-      "icon": "🔄",
-      "reward": 600,
-      "trigger": "comeback_achievement"
+      "id": "actions_100",
+      "name": "Мастер",
+      "description": "Выполнить 100 действий",
+      "icon": "⭐",
+      "reward": 800,
+      "trigger": "total_actions_executed",
+      "condition": 100
+    },
+    {
+      "id": "actions_500",
+      "name": "Легенда",
+      "description": "Выполнить 500 действий",
+      "icon": "🌟",
+      "reward": 2000,
+      "trigger": "total_actions_executed",
+      "condition": 500
     }
   ],
   "statuses": [

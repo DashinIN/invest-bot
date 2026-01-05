@@ -1,6 +1,7 @@
 import { Telegraf } from 'telegraf';
 import { User, UserAsset } from '../models';
 import { getAllIndustries, getAsset } from '../utils/industries';
+import { checkAndAwardAchievements } from '../utils/achievements';
 import { calculateActionCost, canAffordAction } from '../utils/calculator';
 
 export function registerGameHandlers(bot: Telegraf) {
@@ -111,7 +112,7 @@ export function registerGameHandlers(bot: Telegraf) {
   });
 
   // Просмотр актива перед покупкой
-  bot.action(/^shop_asset_(.+?)_(.+)$/, async (ctx) => {
+  bot.action(/^shop_asset_(showbiz|tech|real_estate|trade|transport)_(.+)$/, async (ctx) => {
     try {
       const userId = ctx.from?.id;
       const industryId = ctx.match?.[1];
@@ -160,7 +161,7 @@ export function registerGameHandlers(bot: Telegraf) {
   });
 
   // Выполнить покупку
-  bot.action(/^buy_asset_(.+?)_(.+)$/, async (ctx) => {
+  bot.action(/^buy_asset_(showbiz|tech|real_estate|trade|transport)_(.+)$/, async (ctx) => {
     try {
       const userId = ctx.from?.id;
       const industryId = ctx.match?.[1];
@@ -208,6 +209,15 @@ export function registerGameHandlers(bot: Telegraf) {
       user.totalAssets += 1;
       user.totalIncome += asset.baseIncome;
       await user.save();
+
+      // check achievements (notify via ctx.reply)
+      try {
+        const newly = await checkAndAwardAchievements(userId, async (text: string) => { 
+          await ctx.reply(text); 
+        });
+      } catch (e) {
+        console.error('Error awarding achievements after buy_asset', e);
+      }
 
       // Показываем сообщение о успешной покупке
       const message =

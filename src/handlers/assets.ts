@@ -2,6 +2,7 @@ import { Telegraf } from 'telegraf';
 import { User, UserAsset, AssetAction } from '../models';
 import { getAllIndustries, getAsset, getAction } from '../utils/industries';
 import { calculateActionCost, executeAction, canAffordAction, canExecuteAction, getNextActionCost } from '../utils/calculator';
+import { checkAndAwardAchievements } from '../utils/achievements';
 
 export function registerAssetHandlers(bot: Telegraf) {
   // =============== МОИ АКТИВЫ ===============
@@ -279,6 +280,15 @@ export function registerAssetHandlers(bot: Telegraf) {
             ]
           }
         });
+
+        // check achievements (notify user)
+        try {
+          const newly = await checkAndAwardAchievements(userId, async (text: string) => { 
+            await ctx.reply(text); 
+          });
+        } catch (e) {
+          console.error('Error awarding achievements after action', e);
+        }
       } else {
         // Неудача - теряем деньги
         await user.save();

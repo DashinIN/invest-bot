@@ -2,6 +2,7 @@ import { Telegraf } from 'telegraf';
 import { User, UserAsset } from '../models';
 import { config } from '../config';
 import { getPlayerStatus } from '../utils/calculator';
+import { getStatus } from '../utils/industries';
 
 function showMainMenu(text: string) {
   return {
@@ -10,6 +11,8 @@ function showMainMenu(text: string) {
       inline_keyboard: [
         [{ text: '📦 Мои активы', callback_data: 'my_assets' }],
         [{ text: '🏪 Купить активы', callback_data: 'shop' }],
+        [{ text: '🎖️ Достижения', callback_data: 'show_achievements' }],
+        [{ text: '🏆 Топ игроков', callback_data: 'top10' }],
         [{ text: 'ℹ️ Справка', callback_data: 'help_menu' }]
       ]
     }
@@ -17,13 +20,16 @@ function showMainMenu(text: string) {
 }
 
 function getProfileText(user: User): string {
-  const status = getPlayerStatus(user.totalAssets, user.totalIncome);
+  const statusId = getPlayerStatus(user.totalAssets, user.totalIncome);
+  const statusConfig = getStatus(statusId);
+  const statusName = statusConfig?.name || 'Новичок';
+  
   return (
     `👤 **${user.firstName} ${user.lastName || ''}**\n\n` +
     `💰 Баланс: ${user.currency} монет\n` +
     `📦 Активов: ${user.totalAssets}\n` +
     `📈 Доход в день: ${user.totalIncome}\n` +
-    `🏆 Статус: ${status}`
+    `🏆 Статус: ${statusName}`
   );
 }
 

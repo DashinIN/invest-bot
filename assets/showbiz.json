@@ -7,11 +7,11 @@
         "id": "music_label",
         "name": "Музыкальный лейбл",
         "baseIncome": 10,
-        "baseCost": 1000,
+        "baseCost": 750,
         "actions": [
           {
             "id": "home_studio",
-            "name": "Домашняя студия",
+            "name": "Открыть новую студию",
             "baseCost": 10,
             "successChance": 0.4,
             "incomeBonus": 1,
@@ -19,7 +19,7 @@
           },
           {
             "id": "sound_producer",
-            "name": "Саунд-продюсер",
+            "name": "Схантить саунд-продюсера",
             "baseCost": 25,
             "successChance": 0.55,
             "incomeBonus": 2,
@@ -27,7 +27,7 @@
           },
           {
             "id": "indie_artist",
-            "name": "Контракт с инди-артистом",
+            "name": "Контракт с андеграунд артистом",
             "baseCost": 40,
             "successChance": 0.7,
             "incomeBonus": 3,
@@ -43,7 +43,7 @@
           },
           {
             "id": "radio_rotation",
-            "name": "Радиоротация",
+            "name": "Купить место в чартах",
             "baseCost": 120,
             "successChance": 0.88,
             "incomeBonus": 8,
@@ -51,7 +51,7 @@
           },
           {
             "id": "national_tour",
-            "name": "Национальный тур",
+            "name": "Запустить национальный тур",
             "baseCost": 200,
             "successChance": 0.93,
             "incomeBonus": 12,
@@ -75,7 +75,7 @@
           },
           {
             "id": "hit_of_year",
-            "name": "Хит года",
+            "name": "Выпустить хит года",
             "baseCost": 800,
             "successChance": 0.99,
             "incomeBonus": 35,
@@ -95,11 +95,11 @@
         "id": "film_studio",
         "name": "Киностудия",
         "baseIncome": 18,
-        "baseCost": 1500,
+        "baseCost": 1125,
         "actions": [
           {
             "id": "short_film",
-            "name": "Короткометражка",
+            "name": "Снять короткометражку",
             "baseCost": 15,
             "successChance": 0.4,
             "incomeBonus": 1,
@@ -107,7 +107,7 @@
           },
           {
             "id": "indie_movie",
-            "name": "Независимый фильм",
+            "name": "Снять независимый фильм",
             "baseCost": 30,
             "successChance": 0.55,
             "incomeBonus": 2,
@@ -115,7 +115,7 @@
           },
           {
             "id": "production_team",
-            "name": "Продакшн-команда",
+            "name": "Улучшить продакшн-команду",
             "baseCost": 50,
             "successChance": 0.7,
             "incomeBonus": 3,
@@ -123,7 +123,7 @@
           },
           {
             "id": "famous_actor",
-            "name": "Известный актёр",
+            "name": "Нанять Данилу Козловского",
             "baseCost": 90,
             "successChance": 0.8,
             "incomeBonus": 5,
@@ -131,7 +131,7 @@
           },
           {
             "id": "festival_screening",
-            "name": "Фестивальный показ",
+            "name": "Устроить фестивальный показ",
             "baseCost": 140,
             "successChance": 0.88,
             "incomeBonus": 8,
@@ -139,7 +139,7 @@
           },
           {
             "id": "intl_release",
-            "name": "Международный прокат",
+            "name": "Запустить международный прокат",
             "baseCost": 220,
             "successChance": 0.93,
             "incomeBonus": 12,
@@ -147,7 +147,7 @@
           },
           {
             "id": "sequel",
-            "name": "Сиквел",
+            "name": "Снять сиквел",
             "baseCost": 360,
             "successChance": 0.97,
             "incomeBonus": 18,
@@ -155,7 +155,7 @@
           },
           {
             "id": "streaming_contract",
-            "name": "Контракт со стримингом",
+            "name": "Подписать контракт со стримингом",
             "baseCost": 550,
             "successChance": 0.98,
             "incomeBonus": 25,
@@ -163,7 +163,7 @@
           },
           {
             "id": "blockbuster",
-            "name": "Блокбастер",
+            "name": "Снять блокбастер",
             "baseCost": 850,
             "successChance": 0.99,
             "incomeBonus": 35,
@@ -171,7 +171,7 @@
           },
           {
             "id": "film_franchise",
-            "name": "Кинофраншиза",
+            "name": "Запустить кинофраншизу",
             "baseCost": 1300,
             "successChance": 0.995,
             "incomeBonus": 50,
@@ -211,7 +211,7 @@
           },
           {
             "id": "content_purchase",
-            "name": "Закупка контента",
+            "name": "Закупка контента в вк видео",
             "baseCost": 80,
             "successChance": 0.8,
             "incomeBonus": 5,
@@ -219,7 +219,7 @@
           },
           {
             "id": "ad_department",
-            "name": "Рекламный отдел",
+            "name": "Вложиться в рекламный отдел",
             "baseCost": 120,
             "successChance": 0.88,
             "incomeBonus": 8,
@@ -227,7 +227,7 @@
           },
           {
             "id": "prime_time",
-            "name": "Прайм-тайм",
+            "name": "Купить место в прайм-тайм",
             "baseCost": 200,
             "successChance": 0.93,
             "incomeBonus": 12,
@@ -235,7 +235,7 @@
           },
           {
             "id": "reality_show",
-            "name": "Реалити-шоу",
+            "name": "Запустить реалити-шоу",
             "baseCost": 350,
             "successChance": 0.97,
             "incomeBonus": 18,
@@ -259,7 +259,7 @@
           },
           {
             "id": "intl_version",
-            "name": "Международная версия",
+            "name": "Запустить международную версию",
             "baseCost": 1200,
             "successChance": 0.995,
             "incomeBonus": 50,
@@ -283,7 +283,7 @@
           },
           {
             "id": "mobile_app",
-            "name": "Мобильное приложение",
+            "name": "Развивать мобильное приложение",
             "baseCost": 30,
             "successChance": 0.55,
             "incomeBonus": 2,
@@ -291,7 +291,7 @@
           },
           {
             "id": "exclusive_content",
-            "name": "Эксклюзивный контент",
+            "name": "Создать эксклюзивный контент",
             "baseCost": 50,
             "successChance": 0.7,
             "incomeBonus": 3,
@@ -299,7 +299,7 @@
           },
           {
             "id": "subscription_model",
-            "name": "Подписочная модель",
+            "name": "Улучшить подписки на сервис",
             "baseCost": 90,
             "successChance": 0.8,
             "incomeBonus": 5,
@@ -307,7 +307,7 @@
           },
           {
             "id": "recommendation_ai",
-            "name": "AI-рекомендации",
+            "name": "Улучшить AI-рекомендации",
             "baseCost": 140,
             "successChance": 0.88,
             "incomeBonus": 8,
@@ -363,7 +363,7 @@
         "actions": [
           {
             "id": "local_gigs",
-            "name": "Локальные выступления",
+            "name": "Гаражные концерты",
             "baseCost": 10,
             "successChance": 0.4,
             "incomeBonus": 1,
@@ -622,7 +622,7 @@
       {
         "id": "tiktok_house",
         "baseCost": 1000,
-        "name": "TikTok-дом",
+        "name": "TikTok хаус",
         "baseIncome": 11,
         "actions": [
           {

@@ -7,7 +7,7 @@
         "id": "taxi_service",
         "name": "Сервис такси",
         "baseIncome": 12,
-        "baseCost": 1000,
+        "baseCost": 750,
         "actions": [
           {
             "id": "driver_recruitment",
@@ -19,7 +19,7 @@
           },
           {
             "id": "vehicle_fleet",
-            "name": "Автопарк",
+            "name": "Расширить автопарк",
             "baseCost": 25,
             "successChance": 0.55,
             "incomeBonus": 2,
@@ -27,7 +27,7 @@
           },
           {
             "id": "gps_tracking",
-            "name": "GPS отслеживание",
+            "name": "улучшить GPS отслеживание",
             "baseCost": 40,
             "successChance": 0.7,
             "incomeBonus": 3,
@@ -35,7 +35,7 @@
           },
           {
             "id": "premium_service",
-            "name": "Премиум сервис",
+            "name": "Развитие премиум сервиса",
             "baseCost": 80,
             "successChance": 0.8,
             "incomeBonus": 5,
@@ -95,7 +95,7 @@
         "id": "logistics_company",
         "name": "Логистическая компания",
         "baseIncome": 14,
-        "baseCost": 1400,
+        "baseCost": 1050,
         "actions": [
           {
             "id": "warehouse_network",

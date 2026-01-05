@@ -7,7 +7,7 @@
         "id": "startup",
         "name": "Технологический стартап",
         "baseIncome": 15,
-        "baseCost": 1500,
+        "baseCost": 1125,
         "actions": [
           {
             "id": "mvp_launch",
@@ -95,7 +95,7 @@
         "id": "saas_company",
         "name": "SaaS сервис",
         "baseIncome": 17,
-        "baseCost": 1700,
+        "baseCost": 1275,
         "actions": [
           {
             "id": "product_launch",

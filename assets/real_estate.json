@@ -7,7 +7,7 @@
         "id": "residential_complex",
         "name": "Жилой комплекс",
         "baseIncome": 14,
-        "baseCost": 1200,
+        "baseCost": 900,
         "actions": [
           {
             "id": "land_purchase",
@@ -95,7 +95,7 @@
         "id": "commercial_center",
         "name": "Торговый центр",
         "baseIncome": 16,
-        "baseCost": 1500,
+        "baseCost": 1125,
         "actions": [
           {
             "id": "retail_units",

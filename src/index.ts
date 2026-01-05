@@ -7,6 +7,7 @@ import { registerCommands } from './handlers/commands';
 import { registerGameHandlers } from './handlers/game';
 import { registerAssetHandlers } from './handlers/assets';
 import { registerStatsHandlers } from './handlers/stats';
+import { registerChannelHandlers, postGameMessage } from './handlers/channel';
 
 async function main() {
   try {
@@ -32,8 +33,16 @@ async function main() {
     registerGameHandlers(bot);
     registerAssetHandlers(bot);
     registerStatsHandlers(bot);
+    registerChannelHandlers(bot);
 
     console.log('🎮 Handlers registered');
+
+    // Post initial message to channel if not already posted
+    const CHANNEL_ID = process.env.CHANNEL_ID;
+    if (CHANNEL_ID && !process.env.CHANNEL_MESSAGE_ID) {
+      console.log('📢 Posting initial message to channel...');
+      await postGameMessage(bot);
+    }
 
     // Initialize scheduler for daily income, weekly stats
     initScheduler();

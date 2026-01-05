@@ -24,7 +24,7 @@ interface Action {
   maxLevel: number;
 }
 
-interface AchievementConfig {
+export interface AchievementConfig {
   id: string;
   name: string;
   description: string;
@@ -37,8 +37,8 @@ interface AchievementConfig {
 interface StatusConfig {
   id: string;
   name: string;
-  min_level: number;
-  min_income: number;
+  minLevel: number;
+  minIncome: number;
   description: string;
 }
 
@@ -97,8 +97,8 @@ export function getStatus(statusId: string): StatusConfig | undefined {
 }
 
 export function getStatusByMetrics(level: number, income: number): StatusConfig {
-  const statuses = statusesCache.sort((a, b) => b.min_income - a.min_income);
-  return statuses.find(s => level >= s.min_level && income >= s.min_income) || statuses[statuses.length - 1];
+  const statuses = statusesCache.sort((a, b) => b.minIncome - a.minIncome);
+  return statuses.find(s => level >= s.minLevel && income >= s.minIncome) || statuses[statuses.length - 1];
 }
 
 export function getAllIndustries(): Industry[] {
