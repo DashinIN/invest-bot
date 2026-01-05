@@ -10,7 +10,7 @@ import { updateGameMessage } from '../handlers/channel';
  */
 const SCHEDULER_CONFIG = {
   test: {
-    passiveIncome: '0 * * * *', // Every minute
+    passiveIncome: '* * * * *', // Every minute
     weeklyStats: '0 0 * * *' // Every day at 00:00 UTC
   },
   production: {

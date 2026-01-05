@@ -1,6 +1,8 @@
 import { Telegraf } from 'telegraf';
 import { User } from '../models';
 import { config } from '../config';
+import fs from 'fs';
+import path from 'path';
 
 export interface ChannelConfig {
   channelId: string;
@@ -10,27 +12,53 @@ export interface ChannelConfig {
 // Читать конфиг канала
 export function getChannelConfig(): ChannelConfig {
   const channelId = (process.env.CHANNEL_ID || config.channelId || '').toString();
-  const messageId = process.env.CHANNEL_MESSAGE_ID 
-    ? parseInt(process.env.CHANNEL_MESSAGE_ID) 
-    : undefined;
-  
+  let messageId: number | undefined;
+
+  if (process.env.CHANNEL_MESSAGE_ID) {
+    messageId = parseInt(process.env.CHANNEL_MESSAGE_ID);
+  } else {
+    const filePath = path.resolve(__dirname, '../../config/channel_message.json');
+    if (fs.existsSync(filePath)) {
+      try {
+        const raw = fs.readFileSync(filePath, 'utf8');
+        const parsed = JSON.parse(raw);
+        if (parsed && parsed.messageId) messageId = parseInt(parsed.messageId);
+      } catch (err) {
+        console.warn('⚠️ Failed to read channel_message.json:', err);
+      }
+    }
+  }
+
   return { channelId, messageId };
 }
 
 // Сохранить ID сообщения (в env или конфиге)
 export function saveChannelMessageId(messageId: number): void {
   process.env.CHANNEL_MESSAGE_ID = messageId.toString();
-  console.log(`✅ Saved channel message ID: ${messageId}`);
+  const filePath = path.resolve(__dirname, '../../config/channel_message.json');
+  try {
+    fs.writeFileSync(filePath, JSON.stringify({ messageId }), 'utf8');
+    console.log(`✅ Saved channel message ID: ${messageId} -> ${filePath}`);
+  } catch (err) {
+    console.warn('⚠️ Failed to persist channel message ID to file:', err);
+    console.log(`✅ Saved channel message ID in environment: ${messageId}`);
+  }
 }
 
 // Отправить начальное сообщение в канал
 export async function postGameMessage(bot: Telegraf): Promise<number | null> {
   try {
-    const { channelId } = getChannelConfig();
-    
+    const { channelId, messageId } = getChannelConfig();
+
     if (!channelId) {
       console.warn('⚠️ CHANNEL_ID not configured');
       return null;
+    }
+
+    // If a channel message ID already exists (persisted), skip posting again
+    if (messageId) {
+      console.log(`ℹ️ Channel message already exists (ID: ${messageId}). Skipping post.`);
+      return messageId;
     }
 
     const playerCount = await User.count();
