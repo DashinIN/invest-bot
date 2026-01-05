@@ -4,6 +4,7 @@ import { Op } from 'sequelize';
 import bot from '../bot';
 import { config } from '../config';
 import { updateGameMessage } from '../handlers/channel';
+import { checkAndAwardAchievements } from './achievements';
 
 /**
  * Scheduler configuration for different environments
@@ -65,6 +66,13 @@ export function schedulePassiveIncome() {
           });
 
           console.log(`   User ${user.id}: +${totalIncome} (${oldCurrency} → ${user.currency})`);
+
+          // Check achievements after passive income is added
+          try {
+            await checkAndAwardAchievements(user.id);
+          } catch (err) {
+            console.error(`Error checking achievements for user ${user.id}:`, err);
+          }
         }
       }
 

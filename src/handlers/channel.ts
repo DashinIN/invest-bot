@@ -37,6 +37,11 @@ export function saveChannelMessageId(messageId: number): void {
   process.env.CHANNEL_MESSAGE_ID = messageId.toString();
   const filePath = path.resolve(__dirname, '../../config/channel_message.json');
   try {
+    // Create directory if it doesn't exist
+    const dirPath = path.dirname(filePath);
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
+    }
     fs.writeFileSync(filePath, JSON.stringify({ messageId }), 'utf8');
     console.log(`✅ Saved channel message ID: ${messageId} -> ${filePath}`);
   } catch (err) {
