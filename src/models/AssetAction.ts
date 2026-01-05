@@ -3,10 +3,10 @@ import { Sequelize, DataTypes, Model } from 'sequelize';
 export class AssetAction extends Model {
   public id!: number;
   public userId!: number;
-  public assetId!: number;
+  public assetId!: string;
   public actionId!: string;
-  public level!: number;
-  public succeeded!: boolean;
+  public currentLevel!: number;
+  public currentCost!: number;
   public createdAt!: Date;
 }
 
@@ -23,20 +23,22 @@ export function initAssetAction(sequelize: Sequelize) {
         allowNull: false
       },
       assetId: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
       },
       actionId: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      level: {
+      currentLevel: {
         type: DataTypes.INTEGER,
-        defaultValue: 0
+        defaultValue: 0,
+        comment: 'How many times this action succeeded (0 = not unlocked)'
       },
-      succeeded: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false
+      currentCost: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        comment: 'Current cost for next execution'
       }
     },
     {

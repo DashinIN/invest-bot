@@ -6,8 +6,6 @@ export class UserAsset extends Model {
   public userId!: number;
   public industryId!: string;
   public assetId!: string;
-  public level!: number;
-  public currentCost!: number;
   public currentIncome!: number;
   public createdAt!: Date;
   public updatedAt!: Date;
@@ -33,17 +31,10 @@ export function initUserAsset(sequelize: Sequelize) {
         type: DataTypes.STRING,
         allowNull: false
       },
-      level: {
-        type: DataTypes.INTEGER,
-        defaultValue: 1
-      },
-      currentCost: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
       currentIncome: {
         type: DataTypes.INTEGER,
-        defaultValue: 0
+        defaultValue: 0,
+        comment: 'Current passive income from this asset'
       }
     },
     {

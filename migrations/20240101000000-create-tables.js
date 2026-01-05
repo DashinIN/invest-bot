@@ -76,16 +76,9 @@ module.exports = {
         type: Sequelize.STRING,
         comment: 'e.g., music_label, savings_bank'
       },
-      level: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1
-      },
-      current_cost: {
-        type: Sequelize.INTEGER,
-        comment: 'Current cost for next action'
-      },
       current_income: {
         type: Sequelize.INTEGER,
+        defaultValue: 0,
         comment: 'Current passive income from this asset'
       },
       created_at: {
@@ -110,21 +103,23 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       asset_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'user_assets', key: 'id' },
-        onDelete: 'CASCADE'
+        type: Sequelize.STRING,
+        allowNull: false,
+        comment: 'Asset ID from industries data (e.g., music_label, savings_bank)'
       },
       action_id: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
-      level: {
+      current_level: {
         type: Sequelize.INTEGER,
         defaultValue: 0,
         comment: 'How many times this action succeeded (0 = not unlocked)'
       },
-      succeeded: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+      current_cost: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+        comment: 'Current cost for next execution'
       },
       created_at: {
         type: Sequelize.DATE,

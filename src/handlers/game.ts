@@ -195,13 +195,11 @@ export function registerGameHandlers(bot: Telegraf) {
         return ctx.answerCbQuery(`❌ Недостаточно средств!\nНужно: ${cost}\nЕсть: ${user.currency}`);
       }
 
-      // Создаем новый актив
-      await UserAsset.create({
+      // Создаем новый актив БЕЗ уровня
+      const userAsset = await UserAsset.create({
         userId,
         industryId,
         assetId,
-        level: 1,
-        currentCost: cost,
         currentIncome: asset.baseIncome
       });
 

@@ -30,7 +30,6 @@ export class Database {
 
     User.hasMany(AssetAction, { foreignKey: 'userId' });
     AssetAction.belongsTo(User, { foreignKey: 'userId' });
-    AssetAction.belongsTo(UserAsset, { foreignKey: 'assetId' });
 
     User.hasMany(Achievement, { foreignKey: 'userId', as: 'achievements' });
     Achievement.belongsTo(User, { foreignKey: 'userId' });

@@ -1,25 +1,12 @@
 import { getAsset, getAction } from './industries';
 
-interface CostCalc {
-  base: number;
-  current: number;
-}
-
 /**
- * Формула: current_cost = base_cost * (1.5 ^ level)
+ * Расчет стоимости действия согласно формуле
+ * current_cost = base_cost × (1.5 ^ (level - 1))
+ * где level - количество успешно выполненных апгрейдов (1-indexed)
  */
 export function calculateActionCost(baseCost: number, level: number): number {
   return Math.floor(baseCost * Math.pow(1.5, level - 1));
-}
-
-/**
- * Формула: current_income = base_income + Σ(income_bonus_успешных_действий)
- */
-export function calculateAssetIncome(
-  baseIncome: number,
-  successfulBonuses: number[]
-): number {
-  return baseIncome + successfulBonuses.reduce((sum, bonus) => sum + bonus, 0);
 }
 
 /**
@@ -27,6 +14,42 @@ export function calculateAssetIncome(
  */
 export function executeAction(successChance: number): boolean {
   return Math.random() < successChance;
+}
+
+/**
+ * Проверить, может ли пользователь выполнить действие
+ */
+export function canAffordAction(userCurrency: number, actionCost: number): boolean {
+  return userCurrency >= actionCost;
+}
+
+/**
+ * Получить все доступные действия для актива
+ */
+export function getAvailableActions(industryId: string, assetId: string): any[] {
+  const asset = getAsset(industryId, assetId);
+  return asset?.actions || [];
+}
+
+/**
+ * Проверить, может ли действие быть выполнено еще раз
+ * @param currentLevel текущее количество успешных выполнений (0-indexed)
+ * @param maxLevel максимальное количество выполнений из конфига
+ * @returns true если можно выполнить еще раз
+ */
+export function canExecuteAction(currentLevel: number, maxLevel: number): boolean {
+  return currentLevel < maxLevel;
+}
+
+/**
+ * Расчет стоимости следующего выполнения действия
+ * @param action объект действия из конфига
+ * @param currentLevel текущий уровень успешного выполнения (0-indexed)
+ * @returns стоимость следующего выполнения
+ */
+export function getNextActionCost(action: any, currentLevel: number): number {
+  // level для формулы расчета = currentLevel + 1 (так как это будет следующий уровень)
+  return calculateActionCost(action.baseCost, currentLevel + 1);
 }
 
 /**
@@ -43,26 +66,22 @@ export function calculateNewActionLevel(
     return { newLevel: currentLevel, newCost: 0, canExecute: false };
   }
 
-  const canExecute = currentLevel < action.maxLevel;
+  const canExecute = canExecuteAction(currentLevel, action.maxLevel);
   const newLevel = canExecute ? currentLevel + 1 : currentLevel;
-  const newCost = calculateActionCost(action.baseCost, newLevel);
+  const newCost = canExecute ? calculateActionCost(action.baseCost, newLevel) : 0;
 
   return { newLevel, newCost, canExecute };
 }
 
 /**
- * Получить все доступные действия для актива
+ * Расчет дохода от актива с учетом бонусов от успешных действий
+ * Формула: current_income = base_income + Σ(income_bonus_успешных_действий)
  */
-export function getAvailableActions(industryId: string, assetId: string): any[] {
-  const asset = getAsset(industryId, assetId);
-  return asset?.actions || [];
-}
-
-/**
- * Проверить, может ли пользователь выполнить действие
- */
-export function canAffordAction(userCurrency: number, actionCost: number): boolean {
-  return userCurrency >= actionCost;
+export function calculateAssetIncome(
+  baseIncome: number,
+  successfulBonuses: number[]
+): number {
+  return baseIncome + successfulBonuses.reduce((sum, bonus) => sum + bonus, 0);
 }
 
 /**
@@ -79,14 +98,13 @@ export function calculatePassiveIncome(
  * Определить статус игрока по метрикам
  */
 export function getPlayerStatus(totalAssets: number, totalIncome: number): string {
-  const income = totalIncome;
-
-  if (income >= 500000) return 'god_of_capital';
-  if (income >= 100000 && totalAssets >= 50) return 'oligarch';
-  if (income >= 50000 && totalAssets >= 30) return 'tycoon';
-  if (income >= 10000 && totalAssets >= 20) return 'magnate';
-  if (income >= 2000 && totalAssets >= 10) return 'businessman';
-  if (income >= 500 && totalAssets >= 5) return 'entrepreneur';
-  if (income >= 100 && totalAssets >= 2) return 'amateur';
+  if (totalIncome >= 500000) return 'god_of_capital';
+  if (totalIncome >= 100000 && totalAssets >= 50) return 'oligarch';
+  if (totalIncome >= 50000 && totalAssets >= 30) return 'tycoon';
+  if (totalIncome >= 10000 && totalAssets >= 20) return 'magnate';
+  if (totalIncome >= 2000 && totalAssets >= 10) return 'businessman';
+  if (totalIncome >= 500 && totalAssets >= 5) return 'entrepreneur';
+  if (totalIncome >= 100 && totalAssets >= 2) return 'amateur';
   return 'novice';
 }
+

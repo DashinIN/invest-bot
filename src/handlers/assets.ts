@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
-import { User, UserAsset } from '../models';
+import { User, UserAsset, AssetAction } from '../models';
 import { getAllIndustries, getAsset, getAction } from '../utils/industries';
-import { calculateActionCost, executeAction, canAffordAction } from '../utils/calculator';
+import { calculateActionCost, executeAction, canAffordAction, canExecuteAction, getNextActionCost } from '../utils/calculator';
 
 export function registerAssetHandlers(bot: Telegraf) {
   // =============== МОИ АКТИВЫ ===============
@@ -104,7 +104,7 @@ export function registerAssetHandlers(bot: Telegraf) {
         if (assetData) {
           buttons.push([
             {
-              text: `${assetData.name} Lvl.${asset.level} (+${asset.currentIncome}$/д)`,
+              text: `${assetData.name} (+${asset.currentIncome}/д)`,
               callback_data: `view_asset_${asset.id}`
             }
           ]);
@@ -136,6 +136,7 @@ export function registerAssetHandlers(bot: Telegraf) {
       
       if (!userId || !assetId) return ctx.answerCbQuery('❌ Ошибка');
 
+      const user = await User.findByPk(userId);
       const userAsset = await UserAsset.findByPk(assetId);
       if (!userAsset || userAsset.userId !== userId) {
         return ctx.answerCbQuery('❌ Актив не найден');
@@ -146,20 +147,38 @@ export function registerAssetHandlers(bot: Telegraf) {
 
       const message =
         `💼 **${assetData.name}**\n\n` +
-        `📊 Уровень: ${userAsset.level}\n` +
-        `📈 Доход/день: ${userAsset.currentIncome} монет\n` +
-        `💰 Активов: ${userAsset.currentCost} монет\n\n` +
+        `📈 Доход/день: ${userAsset.currentIncome} еврорублей\n` +
+        `💰 Ваш баланс: ${user?.currency} еврорублей\n\n` +
         `**Доступные действия:**`;
 
       const buttons: any[] = [];
       for (const action of assetData.actions) {
-        const cost = calculateActionCost(action.baseCost, userAsset.level);
-        buttons.push([
-          {
-            text: `${action.name} (${cost} монет)`,
-            callback_data: `action_${userAsset.id}_${action.id}`
-          }
-        ]);
+        // Get or create AssetAction to check level and get current cost
+        const [assetAction] = await AssetAction.findOrCreate({
+          where: { userId, assetId: userAsset.assetId, actionId: action.id },
+          defaults: { currentLevel: 0, currentCost: action.baseCost }
+        });
+
+        // Check if action is maxed out
+        const isMaxed = assetAction.currentLevel >= action.maxLevel;
+        
+        if (isMaxed) {
+          // Show maxed actions with lock emoji
+          buttons.push([
+            {
+              text: `🔒 ${action.name} (Максимум)`,
+              callback_data: `action_maxed_${userAsset.id}_${action.id}`
+            }
+          ]);
+        } else {
+          // Show available actions with current cost
+          buttons.push([
+            {
+              text: `${action.name} (${assetAction.currentCost} еврорублей)`,
+              callback_data: `action_${userAsset.id}_${action.id}`
+            }
+          ]);
+        }
       }
 
       buttons.push([{ text: '◀️ Назад', callback_data: `my_industry_${userAsset.industryId}` }]);
@@ -174,6 +193,11 @@ export function registerAssetHandlers(bot: Telegraf) {
       console.error('Error in view_asset:', error);
       ctx.answerCbQuery('❌ Ошибка');
     }
+  });
+
+  // Handle maxed out action attempts
+  bot.action(/^action_maxed_/, async (ctx) => {
+    return ctx.answerCbQuery('🔒 Это действие уже прокачано на максимум!');
   });
 
   // Выполнить действие
@@ -199,11 +223,24 @@ export function registerAssetHandlers(bot: Telegraf) {
         return ctx.answerCbQuery('❌ Действие не найдено');
       }
 
-      const cost = calculateActionCost(action.baseCost, userAsset.level);
+      // Get or create AssetAction to track current level
+      const [assetAction] = await AssetAction.findOrCreate({
+        where: { userId, assetId: userAsset.assetId, actionId },
+        defaults: { currentLevel: 0, currentCost: action.baseCost }
+      });
+
+      // Check if action can be executed (maxLevel restriction)
+      if (!canExecuteAction(assetAction.currentLevel, action.maxLevel)) {
+        return ctx.answerCbQuery(
+          `❌ Это действие достигло максимального уровня!\n\nМаксимум: ${action.maxLevel} раз`
+        );
+      }
+
+      const cost = assetAction.currentCost;
 
       if (!canAffordAction(user.currency, cost)) {
         return ctx.answerCbQuery(
-          `❌ Недостаточно средств!\n\nНужно: ${cost} монет\nЕсть: ${user.currency} монет`
+          `❌ Недостаточно средств!\n\nНужно: ${cost} еврорублей\nЕсть: ${user.currency} еврорублей`
         );
       }
 
@@ -214,20 +251,24 @@ export function registerAssetHandlers(bot: Telegraf) {
       user.currency -= cost;
 
       if (success) {
-        // Успех - увеличиваем доход
+        // Успех - увеличиваем доход и уровень действия
         const incomeBenefit = action.incomeBonus;
         userAsset.currentIncome += incomeBenefit;
         user.totalIncome += incomeBenefit;
 
-        await Promise.all([user.save(), userAsset.save()]);
+        // Update AssetAction level and next cost
+        assetAction.currentLevel += 1;
+        assetAction.currentCost = getNextActionCost(action, assetAction.currentLevel);
+
+        await Promise.all([user.save(), userAsset.save(), assetAction.save()]);
 
         // Показываем результат успеха с анимацией
         const resultMessage =
           `🎉 **УСПЕХ!**\n\n` +
           `Действие "${action.name}" выполнено!\n\n` +
-          `✨ Доход активности повышен на +${action.incomeBonus} монет\n` +
+          `✨ Доход активности повышен на +${action.incomeBonus} еврорублей\n` +
           `📈 Новый доход актива: ${userAsset.currentIncome}/день\n\n` +
-          `💰 Ваш баланс: ${user.currency} монет`;
+          `💰 Ваш баланс: ${user.currency} еврорублей`;
 
         await ctx.editMessageText(resultMessage, {
           parse_mode: 'Markdown',
@@ -245,9 +286,9 @@ export function registerAssetHandlers(bot: Telegraf) {
         const resultMessage =
           `❌ **НЕУДАЧА**\n\n` +
           `Действие "${action.name}" не удалось 😞\n\n` +
-          `💸 Вы потеряли ${cost} монет\n` +
+          `💸 Вы потеряли ${cost} еврорублей\n` +
           `📉 Доход не изменился\n\n` +
-          `💰 Ваш баланс: ${user.currency} монет\n\n` +
+          `💰 Ваш баланс: ${user.currency} еврорублей\n\n` +
           `*Попробуйте снова или выполните другое действие!*`;
 
         await ctx.editMessageText(resultMessage, {
