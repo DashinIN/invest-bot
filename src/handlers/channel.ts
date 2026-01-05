@@ -55,7 +55,7 @@ export async function postGameMessage(bot: Telegraf): Promise<number | null> {
             [
               {
                 text: '▶️ Начать игру',
-                callback_data: 'start_game_from_channel'
+                url: 'https://t.me/dashininvestgamebot'
               }
             ]
           ]
@@ -108,7 +108,7 @@ export async function updateGameMessage(bot: Telegraf): Promise<boolean> {
             [
               {
                 text: '▶️ Начать игру',
-                callback_data: 'start_game_from_channel'
+                url: 'https://t.me/dashininvestgamebot'
               }
             ]
           ]
@@ -126,57 +126,7 @@ export async function updateGameMessage(bot: Telegraf): Promise<boolean> {
 
 // Регистрировать обработчик нажатия кнопки в канале
 export function registerChannelHandlers(bot: Telegraf) {
-  // Когда пользователь нажимает "Начать игру" в канале
-  bot.action('start_game_from_channel', async (ctx) => {
-    try {
-      const userId = ctx.from?.id;
-      if (!userId) return ctx.answerCbQuery('❌ Ошибка');
-
-      // Проверяем, есть ли пользователь
-      let user = await User.findByPk(userId);
-      const isNewUser = !user;
-      
-      if (!user) {
-        // Создаем нового пользователя
-        user = await User.create({
-          id: userId,
-          username: ctx.from?.username || `user_${userId}`,
-          firstName: ctx.from?.first_name || '',
-          currency: 1000, // Стартовый баланс
-          totalIncome: 0,
-          totalAssets: 0,
-          level: 1
-        });
-
-        // Обновляем сообщение в канале при новом игроке
-        await updateGameMessage(bot);
-      }
-
-      // Отправляем приватное сообщение в прямом чате с ботом (НЕ в канал!)
-      await bot.telegram.sendMessage(
-        userId,
-        `👋 **Добро пожаловать в INVEST BOT!**\n\n` +
-        `${isNewUser ? '✨ Вы зарегистрированы!' : '👥 Вы уже в игре!'}\n\n` +
-        `💰 Ваш баланс: ${user.currency} монет\n` +
-        `📦 Активов: ${user.totalAssets}\n` +
-        `📈 Дневной доход: ${user.totalIncome} монет\n\n` +
-        `Используйте меню ниже для игры:`,
-        {
-          parse_mode: 'Markdown',
-          reply_markup: {
-            inline_keyboard: [
-              [{ text: '🏪 Магазин', callback_data: 'shop' }],
-              [{ text: '📦 Мои активы', callback_data: 'my_assets' }],
-              [{ text: '📊 Статистика', callback_data: 'stats' }]
-            ]
-          }
-        }
-      );
-
-      await ctx.answerCbQuery(isNewUser ? '✅ Добро пожаловать! Проверьте приватный чат' : '👋 С возвращением!');
-    } catch (error) {
-      console.error('Error in start_game_from_channel:', error);
-      ctx.answerCbQuery('❌ Ошибка при старте');
-    }
-  });
+  // Кнопка теперь использует URL вместо callback, 
+  // поэтому этот обработчик больше не нужен
+  // Пользователь просто откроет чат с ботом через кнопку
 }
