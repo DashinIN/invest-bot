@@ -11,7 +11,7 @@ import { checkAndAwardAchievements } from './achievements';
  */
 const SCHEDULER_CONFIG = {
   test: {
-    passiveIncome: '* * * * *', // Every minute
+    passiveIncome: '0 * * * *', // Every hour
     weeklyStats: '0 0 * * *' // Every day at 00:00 UTC
   },
   production: {
