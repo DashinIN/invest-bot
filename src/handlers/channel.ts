@@ -50,7 +50,7 @@ export function saveChannelMessageId(messageId: number): void {
   }
 }
 
-// Отправить начальное сообщение в канал
+// Отправить начальное сообщение в канал или обновить существующее
 export async function postGameMessage(bot: Telegraf): Promise<number | null> {
   try {
     const { channelId, messageId } = getChannelConfig();
@@ -58,12 +58,6 @@ export async function postGameMessage(bot: Telegraf): Promise<number | null> {
     if (!channelId) {
       console.warn('⚠️ CHANNEL_ID not configured');
       return null;
-    }
-
-    // If a channel message ID already exists (persisted), skip posting again
-    if (messageId) {
-      console.log(`ℹ️ Channel message already exists (ID: ${messageId}). Skipping post.`);
-      return messageId;
     }
 
     const playerCount = await User.count();
@@ -77,7 +71,38 @@ export async function postGameMessage(bot: Telegraf): Promise<number | null> {
       `💎 Становитесь миллиардером\n\n` +
       `_Нажмите кнопку ниже для начала_`;
 
-    // Отправить сообщение в канал
+    // If message already exists, update it instead of sending a new one
+    if (messageId) {
+      try {
+        await bot.telegram.editMessageText(
+          channelId,
+          messageId,
+          undefined,
+          message,
+          {
+            parse_mode: 'Markdown',
+            reply_markup: {
+              inline_keyboard: [
+                [
+                  {
+                    text: '▶️ Начать игру',
+                    url: 'https://t.me/dashininvestgamebot'
+                  }
+                ]
+              ]
+            }
+          }
+        );
+        console.log(`✅ Updated game message in channel (ID: ${messageId})`);
+        return messageId;
+      } catch (err) {
+        console.error('⚠️ Failed to update existing message:', err);
+        console.log('   Attempting to post a new message...');
+        // Fall through to post a new message if update fails
+      }
+    }
+
+    // Post new message if no messageId exists or update failed
     const sentMessage = await bot.telegram.sendMessage(
       channelId,
       message,
@@ -98,7 +123,7 @@ export async function postGameMessage(bot: Telegraf): Promise<number | null> {
 
     // Сохранить ID сообщения
     saveChannelMessageId(sentMessage.message_id);
-    console.log(`✅ Posted game message to channel. Message ID: ${sentMessage.message_id}`);
+    console.log(`✅ Posted new game message to channel. Message ID: ${sentMessage.message_id}`);
     
     return sentMessage.message_id;
   } catch (error) {

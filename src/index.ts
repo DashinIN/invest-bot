@@ -37,10 +37,10 @@ async function main() {
 
     console.log('🎮 Handlers registered');
 
-    // Post initial message to channel if not already posted
+    // Post or update message in channel on every deployment
     const CHANNEL_ID = process.env.CHANNEL_ID;
-    if (CHANNEL_ID && !process.env.CHANNEL_MESSAGE_ID) {
-      console.log('📢 Posting initial message to channel...');
+    if (CHANNEL_ID) {
+      console.log('📢 Posting/updating channel message...');
       await postGameMessage(bot);
     }
 
