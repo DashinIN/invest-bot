@@ -1,9 +1,7 @@
 import cron from 'node-cron';
 import { User, UserAsset, Transaction } from '../models';
-import { Op } from 'sequelize';
 import bot from '../bot';
 import { config } from '../config';
-import { updateGameMessage } from '../handlers/channel';
 import { checkAndAwardAchievements } from './achievements';
 
 /**
@@ -12,7 +10,7 @@ import { checkAndAwardAchievements } from './achievements';
 const SCHEDULER_CONFIG = {
   test: {
     passiveIncome: '0 * * * *', // Every hour
-    weeklyStats: '0 0 * * *' // Every day at 00:00 UTC
+    weeklyStats: '0 9 * * 0' // Every day at 00:00 UTC
   },
   production: {
     passiveIncome: '0 0 * * *', // Every day at 00:00 UTC
@@ -131,24 +129,6 @@ export function scheduleWeeklyStats() {
   });
 }
 
-/**
- * Schedule channel message update
- * Updates player count in channel message every hour
- */
-export function scheduleChannelUpdate() {
-  // Every hour at :00
-  cron.schedule('0 * * * *', async () => {
-    try {
-      console.log('📢 Updating channel message...');
-      const updated = await updateGameMessage(bot);
-      if (updated) {
-        console.log('✅ Channel message updated');
-      }
-    } catch (error) {
-      console.error('❌ Error updating channel message:', error);
-    }
-  });
-}
 
 export function initScheduler() {
   const env = process.env.NODE_ENV || 'production';
@@ -160,5 +140,4 @@ export function initScheduler() {
 
   schedulePassiveIncome();
   scheduleWeeklyStats();
-  scheduleChannelUpdate();
 }
